@@ -1,0 +1,200 @@
+
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}  
+<style>
+	.fields {
+		border: 1px solid grey;
+		width: 45rem;
+		height: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		margin: 2rem;
+		padding: 1rem;
+	}
+
+	label[for="username-field"] {
+    	display: none;
+	}
+	label[for="pas1-field"] {
+    	display: none;
+	}label[for="pas2-field"] {
+    	display: none;
+	}
+	label[for="email-field"] {
+    	display: none;
+	}
+
+	label[for="pas1-field"]::after {
+	    content: attr(title);
+	    font-style: italic;
+	}
+
+		/* Extra small devices (phones) */
+	@media only screen and (max-width: 576px) {
+	   #help-desc {
+	   	 display: none;
+	   }
+	   .fields {
+
+			width: 16rem;
+			height: 1.4rem;
+			display: flex;
+			flex-direction: column;
+			margin: 2rem;
+			position: relative;
+			right: 30px;
+	   }
+	}
+
+	/* Small devices (tablets) */
+	@media only screen and (min-width: 577px) and (max-width: 768px) {
+	   .fields {
+
+			width: 26rem;
+			height: 1.6rem;
+			display: flex;
+			flex-direction: column;
+			margin: 2rem;
+			position: relative;
+			right: 90px;
+	   }
+
+		#reminder-text {
+		   	left: -10%;
+		}
+
+		#register-btn {
+			left: -10%;
+		}
+
+		#help-desc {
+			font-size: 1rem;
+			left: 70%;
+			width: 19rem;
+			height: 26rem;
+			padding: 1rem;
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.fields {
+
+			width: 30rem;
+			height: 1.7rem;
+			display: flex;
+			flex-direction: column;
+			margin: 2rem;
+			position: relative;
+			right: 100px;
+	   }
+
+	   #help-desc {
+
+			left: 72%;
+		}
+
+		#reminder-text {
+		   	left: -10%;
+		}
+
+		#register-btn {
+			left: -10%;
+		}
+	}
+
+	@media only screen and (min-width: 1440px){
+		.fields {
+
+			width: 45rem;
+		    height: 2.5rem;
+			display: flex;
+			flex-direction: column;
+			margin: 2rem;
+			position: relative;
+			right: 100px;
+		}
+
+	   #help-desc {
+
+			left: 90%;
+		}
+
+		#reminder-text {
+		   	left: 0;
+		}
+
+		#register-btn {
+			left: 0;
+		}
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+		#auth-nav {
+			height: 7rem;
+		}
+
+		#auth-main-header {
+			font-size: 2.6rem;
+			margin-left: 4rem;
+		}
+
+		.fields {
+			width: 54rem;
+			height: 4rem;
+			font-size: 1.8rem;
+		}
+
+		#login-p {
+			font-size: 2rem;
+			left: -7.4%;
+			top: 130%;
+		}
+
+		#register-btn {
+			width: 14.3rem;
+			height: 4.18rem;
+			font-size: 2rem;
+			text-align: center;
+			padding: 1rem;
+			left: -7.4%;
+			top: 105%;
+		}
+
+		#help-desc {
+			width: 46.8rem;
+			height: 32.76rem;
+			top: 6.5%;
+		}
+
+		#help-desc p {
+			font-size: 1.8rem;
+			line-height: 43.2px;
+		}
+	}
+
+</style>
+<div id="register-container" class="absolute top-[25%] left-[10%] text-xl">
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form }}
+		
+		<button id="register-btn" type="submit" class="border-2 border-solid border-white bg-[#3bf8ff]
+		w-[10rem] h-[3rem] text-white p-2 rounded-md flex justify-center absolute top-[96%] left-[4%]">
+			<span class="mx-auto">Register</span>
+		</button>
+	</form>
+	<p id="login-p" class="absolute top-[122%] left-[4%]" id="reminder-text">If you alredy have an account, <a href="{% url 'register:login' %}" class="text-[#3bf8ff]">Login</a> instead</p>
+	<div id="help-desc" class="absolute top-[10%] left-[100%] bg-slate-200 text-lg p-5 w-[30rem] h-[21rem] rounded-md mx-8">
+		<p class="help_text">Fusha Email është e obliguar. Maksimumi 150 karaktere dhe vetem keto simbole lejohen përveç shkronjave dhe numrave : @/,/+/-/_.</p>
+		<br/>
+		<p>Paswordi nuk mund të jetë shumë i njejtë me informatat e tjera. Duhet ti ketë të paktën 8 karaktere. Nuk duhet të jetë pasword i përdorur shpesh. Nuk mund të ketë vetëm vlera numërike.
+		</p>
+		<br/>
+		<p>KUJDES: Nëse nuk plotsohen këto ksuhte nuk mund të regjistroheni!</p>
+	</div>	
+</div>
+
+{% endblock %}

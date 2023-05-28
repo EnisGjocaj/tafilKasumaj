@@ -1,0 +1,340 @@
+{% load static %}
+
+{% block content %}
+<style>
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		overflow-x: hidden;
+		background-color: white;
+	}
+
+	@import url('https://fonts.googleapis.com/css2?family=Kurale&family=Yantramanav&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Kurale&family=Roboto&family=Yantramanav&display=swap');
+
+	@keyframes typing {
+	  from {
+	    width: 0;
+	  }
+	  to {
+	    width: 100%;
+	  }
+	}
+
+	@keyframes blink {
+		from {
+		  border-right: 2px solid gold;	
+		}to {
+		   border-right: 0px solid black;	
+		}
+	}
+
+	#main-btn {
+		left: 40%;
+	}
+
+	.typing-animation {
+		  display: inline-block;
+		  overflow: hidden;
+		  animation: typing 10s steps(60, end);
+	}
+
+	@keyframes blink {
+  		50% { opacity: 0 }
+	}
+
+	.animate-blink {
+  		animation: blink 1s infinite;
+	}
+
+	.overflow-hidden {
+	 	 overflow: hidden;
+	}
+
+	#section-container {
+		overflow: hidden;
+	}
+	 
+	@keyframes cursor {
+	  0%,
+	  40% {
+	    border-right: 2px solid gold;	
+	  }
+	 
+	  60%,
+	  100% {
+	   border-right: 0px solid gold;	
+	  }
+	}
+
+	@keyframes rotate {
+	  from {
+	    transform: rotate(0deg);
+	  }
+	  to {
+	    transform: rotate(360deg);
+	  }
+	}
+	
+	.main-header {
+		border-right: 2px solid gold;
+		animation: cursor 1s infinite;
+
+	}
+
+	#main-btn {
+		color: #fff;
+	}
+
+	#main-btn:after{
+		  position: absolute;
+		  content: "";
+		  top: 0;
+		  left: 0;
+		  width: 0;
+		  height: 100%;
+		  background: #3bf8ff;
+		  transition: all .35s;
+	}
+
+	.rotate-square {
+		animation: rotate 3s infinite;
+	}
+
+	#main-btn:hover{
+  		color: #fff;
+	}
+
+	#main-btn:hover:after{
+	  width: 100%;
+	  color: #fff;
+	}
+
+	.overflow-hidden {
+		overflow: hidden;
+	}
+
+    section {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  
+	}
+	section .wave {
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 100px;
+		background: url('./static/img/wave.png');
+		background-size: 1000px 100px;
+	}
+
+	section .wave.wave-1 {
+		overflow: hidden;
+		animation: animate 10s linear infinite;
+		z-index: 1000;
+		opacity: 1;
+		animation-delay: 0s;
+		bottom: 0;
+	}
+
+    @keyframes animate {
+    	0% {
+    		background-position-x: 0;
+    	}
+    	100% {
+    		background-position-x: 1000px;
+    	}
+    }
+
+    section .wave.wave-2 {
+		overflow: hidden;
+		animation: animate 5s linear infinite;
+		z-index: 999;
+		opacity: 0.5;
+		animation-delay: 1s;
+		bottom: 0;
+	}
+
+	 section .wave.wave-3 {
+		overflow: hidden;
+		animation: animate 14s linear infinite;
+		z-index: 998;
+		opacity: 0.2;
+		animation-delay: -2s;
+		bottom: 0;
+	}
+
+	 section .wave.wave-4 {
+		overflow: hidden;
+		animation: animate 3s linear infinite;
+		z-index: 996;
+		opacity: 0.6;
+		animation-delay: -1s;
+		bottom: 20px;
+	}
+
+    #wave-container {
+    	position: relative;
+    	bottom: 740px;
+    }
+
+
+    /*@media only screen and (min-width: 2560px) {
+		section {
+			top: 6rem;
+		}
+	}
+
+	@media (max-width: 1500px) and (min-width: 1600px) {
+	  section {
+	  	 bottom: 0;
+	  }
+	}
+
+	@media only screen and (min-width: 1600px) {
+		section {
+			top: 6rem;
+		}
+	}
+
+    @media screen and (min-width: 1024px){
+		section {
+			bottom: -8rem;
+		}
+	}
+
+	@media (min-width: 829px) and (max-width: 1024px) {
+		section {
+			top: 5rem;
+		}
+	}
+    */
+
+    @media screen and (max-width: 768px){
+    	#square-section-main {
+    		font-size: 1.1rem;
+    		width: 2.5rem;
+    		height: 2.5rem;
+    		border: 2px solid white;
+    		top: 10%;
+    	}
+
+    	#section-container {
+    		font-size: 2rem;
+    		left: 10%;
+    	}
+
+    	#main-btn {
+    		font-size: 1.7rem;
+    		top: 54%;
+    		left: 18%;
+    		width: 10rem;
+
+    	}
+    	#main-btn span {
+    		font-size: 1.3rem;
+    	}
+    }
+
+
+    @media screen and (min-width: 320px) and (max-width: 375px) {
+	   section {
+	   		position: relative;
+	   		top: -6rem;
+	   }
+
+	}
+
+	@media screen and (min-width: 375px) and (max-width: 425px) {
+	   section {
+	   		position: relative;
+	   		top: -5rem;
+	   }
+
+	}
+
+	@media only screen and (min-width: 768px) and (max-width: 1023px) {
+		#section-container {
+			font-size: 2.4rem;
+			left: 25%;
+		}
+
+		#square-section-main {
+			top: 7rem;
+			left: 3rem;
+			width: 4rem;
+			height: 4rem;
+		}
+
+		#square-section-main p {
+			font-size: 1.5rem;
+		}
+
+		#main-btn {
+			top: 64%;
+			left: 35%;
+		}
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+		#square-section-main {
+			width: 7.3rem;
+			height: 7.3rem;
+		}
+
+		#square-section-main p {
+			font-size: 2.4rem;
+		}
+
+		#section-container {
+			top: 46%;
+		}
+
+		#section-container h1 {
+			font-size: 5rem;
+		}
+
+		#main-btn {
+			top: 80%;
+			width: 18rem;
+			height: 4.862rem;
+			font-size: 2.2rem;
+			border-radius: 1.5rem;
+		}
+
+		#wave-container {
+			position: relative;
+			bottom: 67rem;
+		}
+	}
+
+	@media screen and (min-height: 1050px) and (max-height: 1079px){
+		#wave-container {
+			position: relative;
+			bottom: 67rem;
+		}
+	}
+
+</style>
+<div id="section-container" class="overflow-hidden absolute top-[40%] left-[30%] font-medium text-white text-6xl whitespace-nowrap truncate typing-animation">
+	<h1 id="main-header" class="main-header overflow-hidden w-41">IAAP Tafil Kasumaj</h1>
+</div>
+<form id="form-section">
+	<button id="main-btn" class="overflow-hidden absolute top-[66%] left-[70%] font-medium text-white text-2xl w-[12.5rem] h-[3.4rem] border-2 border-white border-solid rounded-3xl align-center"><span class="relative z-10">Mëso për ne</span></button>
+</form>
+<div id="square-container" class="flex justify-center">
+	<div id="square-section-main" class="w-[5rem] h-[5rem] bg-transparent border-4 border-solid border-white absolute top-[15%] left-[4%] flex items-center justify-center text-white text-3xl rotate-square"><p>TK</p></div>
+</div>
+<div id="wave-container">
+	<section class="relative w-full h-[100vh] overflow-hidden">
+		<div class="wave wave-1"></div>
+		<div class="wave wave-2"></div>
+		<div class="wave wave-3"></div>
+		<div class="wave wave-4"></div>
+	</section>
+</div>
+{% endblock %}

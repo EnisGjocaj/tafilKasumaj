@@ -1,0 +1,407 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <link rel="stylesheet" href="{% static 'app/css/styles.css' %}"> -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<title>Home</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+			body {
+				font-family: 'Roboto', sans-serif;
+
+			}
+
+			.nav2 {
+				visibility: hidden;
+			}
+
+			#navbar-min {
+				visibility: hidden;
+			}
+
+			#hamburger-btn-home {
+			  z-index: 9999;
+			}
+
+			.overflow-hidden {
+				overflow: hidden;
+			}
+
+			#auth-container ul li{
+				white-space: nowrap;
+			}
+
+			#image-container {
+				background: rgb(2,0,36);
+     			background: linear-gradient(127deg, rgba(2,0,36,1) 0%, rgba(59,78,44,1) 42%, rgba(0,212,255,1) 100%);
+			}
+
+			#big-triangle {
+				display: flex;
+				flex-direction: row;
+				float: left;
+				width: 0;
+				height: 0;
+				border-left: 50px solid transparent;
+				border-right: 50px solid transparent;
+				border-bottom: 50px solid #3bf8ff;
+				position: absolute;
+				top: 1.4%;
+				left: 2%;
+			}
+			
+			#small-triangle {
+				display: flex;
+				flex-direction: row;
+				float: left;
+				width: 0;
+				height: 0;
+				border-left: 30px solid transparent;
+				border-right: 30px solid transparent;
+				border-bottom: 30px solid #3bf8ff;
+				position: absolute;
+				top: 4.1%;
+				left: 7%;
+			} 
+
+			nav ul li {
+			  display: inline-block;
+			  margin-right: 20px;
+			  position: relative;
+			}
+
+			nav ul li::after {
+				  content: "";
+				  display: block;
+				  height: 3px;
+				  width: 0;
+				  background-color: #3bf8ff;
+				  position: absolute;
+				  bottom: -3px; /* this sets the position of the border */
+				  left: 0;
+				  transition: width 0.3s ease 0s;
+			}
+
+				/* Animation for the bottom border of the navbar links */
+			nav ul li:hover::after {
+			  width: 100%;
+			}
+
+			/*Test*/
+			nav ul li {
+			  border-bottom: 2px solid transparent;
+			  transition: border-color 0.4s ease;
+			}
+
+			nav ul li:hover {
+			  border-color: #000; /* Change this to the desired border color */
+			}
+
+
+			.overflow-hidden {
+				overflow: hidden;
+			}
+
+			/*Responsive from here*/
+
+			@media screen and (max-width: 768px) {
+			  /* styles for screens smaller than 768px */
+
+			  	  #navbar{
+			  	  	display: none;
+			  	  }
+
+				  #hamburger-btn-home {
+/*				  	 display: block;*/
+				  	 position: absolute;
+				  	 top: 10px;
+				  	 right: 30px;
+				  	 cursor: pointer;
+				  	 opacity: 1;
+				  }
+
+				  #hamburger-btn-home span {
+				    display: block;
+				    height: 3px;
+				    width: 25px;
+				    margin-bottom: 5px;
+				    background: #000;
+/*				    border-radius: 10px;*/
+				  }
+
+				  #hamburger-btn-home span:last-child {
+				    margin-bottom: 0;
+				  }
+
+				  #navbar-min {
+				  	visibility: hidden;
+	  				opacity: 0;
+				    position: fixed;
+				    top: 32px;
+				    left: 0;
+				    width: 100vw;
+ 				    max-width: 100%;
+				    flex-direction: column;
+				    background: black;
+				    padding: 10px;
+				    transition: all 0.3s ease;
+	  				transform: translateX(-100%);
+	  				z-index: 9999;
+	  				text-align: center;
+	  				color: white;
+				}
+
+				/*Test code start*/
+				#navbar-min li {
+				  padding: 0.5rem;
+				}
+				/*End*/	
+
+				#navbar-min ul li{
+					width: 100%;
+					transition: all 0.6s ease-in-out;
+				}
+
+				#navbar-min ul li:hover {
+					background-color: white;
+					color: black;
+				}
+
+				#navbar-min.show {
+					 visibility: visible;
+					  opacity: 0.9;
+					  transform: translateX(0%);
+					  text-align: center;
+					  color: black;
+			    }
+
+
+
+				  #big-triangle {
+					width: 0;
+					height: 0;
+					border-left: 25px solid transparent;
+					border-right: 25px solid transparent;
+					border-bottom: 25px solid #3bf8ff;
+					position: absolute;
+					top: 0.7%;
+					left: 1.5%;
+				}
+				
+				#small-triangle {
+					display: flex;
+					flex-direction: row;
+					float: left;
+					width: 0;
+					height: 0;
+					border-left: 20px solid transparent;
+					border-right: 20px solid transparent;
+					border-bottom: 20px solid #3bf8ff;
+					position: absolute;
+					top: 1.2%;
+					left: 10%;
+				} 
+
+				#main-img {
+					height: 30rem;
+				}
+
+				#auth-container {
+					top: 10%;
+					left: 1.7%;
+					font-size: 1rem;
+				}
+
+				#auth-container ul {
+					justify-content: center;
+
+				}
+				#auth-container ul li{
+					margin-right: 7px;
+					margin-left: 7px;
+
+				}
+
+				#user-icon {
+					width: 1.2rem;
+					height: 1.2rem;
+				}
+			}
+
+			@media only screen and (max-width: 542px) {
+				#navbar {
+					display: none;
+				}
+				#small-triangle {
+					display: flex;
+					flex-direction: row;
+					float: left;
+					width: 0;
+					height: 0;
+					border-left: 20px solid transparent;
+					border-right: 20px solid transparent;
+					border-bottom: 20px solid #3bf8ff;
+					position: absolute;
+					top: 1.2%;
+					left: 10%;
+				} 
+			}
+
+			@media only screen and (min-width: 768px){
+				ul {
+					display: none;
+				}
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 1023px){
+				#auth-container {
+					font-size: 1.3rem;
+					left: 35%;
+					top: 15%;
+				}
+			}
+
+			@media screen and (min-width: 1920px) and (min-height: 1080px) {
+				#navbar-ul {
+					height: 4rem;
+				}
+
+				#navbar-ul li a {
+					font-size: 1.8rem;
+					margin-right: 1rem;
+					margin-left: 1rem;
+				}
+
+				#big-triangle {
+					border-left: 60px solid transparent;
+					border-right: 60px solid transparent;
+					border-bottom: 60px solid #3bf8ff;
+					position: absolute;
+					top: 1.7%;
+					left: 2%;
+				}
+			
+				#small-triangle {
+					display: flex;
+					flex-direction: row;
+					float: left;
+					width: 0;
+					height: 0;
+					border-left: 40px solid transparent;
+					border-right: 40px solid transparent;
+					border-bottom: 40px solid #3bf8ff;
+					position: absolute;
+					top: 3.6%;
+					left: 7.3%;
+				} 
+
+				#auth-container ul {
+					font-size: 2.3rem;
+				}
+
+				#auth-container {
+					left: 55%;
+					width: 35rem;
+				}
+
+				#auth-container ul li {
+					margin-right: 1.3rem;
+					margin-left: 1.3rem;
+				}
+
+			}
+
+		</style>
+	</head>
+	<body>
+		<button id="hamburger-btn-home" type="button">
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</button>
+		<!--Test code-->
+		<div id="navbar-min" class="text-lg my-2 nav2 opacity-80">
+				<ul class="text-slate-300 font-normal" id="ul-nav">
+					<li class="my-5">
+						<a href="#" class="cursor-pointer">HOME</a>
+					</li>	
+					<li class="my-5">
+						<a href="#" class="cursor-pointer" id="about-btn">ABOUT</a>
+					</li>
+					<li class="my-5">
+						<a href="#" class="cursor-pointer" id="field-btn">FIELDS</a>
+					</li>
+					<li class="my-5">
+						<a href="{% url 'blog:report' %}" class="cursor-pointer">FEEDBACK</a>
+					</li>
+					<li class="my-5">
+						<a href="{% url 'dev:dev-home' %}" class="cursor-pointer">DEV</a>
+					</li>
+					<li class="my-5">
+						<a href="{% url 'blog:home' %}" class="cursor-pointer">BLOG</a>
+					</li>
+				</ul>
+			</div>
+		<!---End-->
+		<nav class="p-5 shadow md:flex md:items-center md:justify-between bg-white opacity-90 md:mt-[-2rem]">
+			<span class="text-2xl cursor-pointer text-black">
+				<div id="big-triangle"></div>
+				<div id="small-triangle"></div>
+			</span>
+				<div class="relative top-0">
+					<ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full top-0 left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-600 text-black text-sm overflow-hidden" id="navbar-ul">
+						<li class="mx-5 my-6 md:my-0 text-center">
+							<a href="#" class="text-xl hover:text-cyan-500 duration-500">HOME</a>
+						</li>
+						<li class="mx-5 my-6 md:my-0">
+							<a href="#" class="text-xl hover:text-cyan-500 duration-500" id="about-btn">ABOUT</a>
+						</li><li class="mx-5 my-6 md:my-0">
+							<a href="#" class="text-xl hover:text-cyan-500 duration-500" id="field-btn">FIELDS</a>
+						</li><li class="mx-5 my-6 md:my-0">
+							<a href="{% url 'blog:report' %}" class="text-xl hover:text-cyan-500 duration-500">FEEDBACK</a>
+						</li><li class="mx-5 my-6 md:my-0">
+							<a href="{% url 'dev:dev-home' %}" class="text-xl hover:text-cyan-500 duration-500">DEV</a>
+						</li><li class="mx-5 my-6 md:my-0">
+							<a href="{% url 'blog:home' %}" class="text-xl hover:text-cyan-500 duration-500">BLOG</a>
+						</li>
+					</ul>
+				</div>
+		</nav>
+		<div id="auth-container" class="flex flex-row justify-center overflow-hidden  absolute top-[15%] left-[65%] w-[25rem] h-[5rem] text-center text-white z-10 text-2xl">
+			<ul class="flex flex-row justify-evenly items-center list-none w-[25rem]">
+				{% if user.is_authenticated %}
+
+				<li id="logout-list" class="items-center">
+					<a href="{% url 'registration:logout' %}" id="logout" class="text-center">Logout</a>
+				</li>
+				<li id="username-list" class=" items-center flex flex-row">
+					<a href="#" id="username" class="text-center">Welcome, {{ user.username }}</a>
+					<svg class="w-[1.8rem] h-[1.8rem] relative bottom-[0.3rem] text-center mx-0.5" xmlns="http://www.w3.org/2000/svg" id="user-icon" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+				</li>
+
+				{% else %}
+
+				<li id="login-list">
+					<a href="{% url 'register:login' %}" id="login">Login</a>
+				</li>
+
+				{% endif %}
+			</ul>
+		</div>
+		<!-- <div id="image-container" class="min-h-screen w-screen bg-gradient-to-r from-[#000000] via-[#162e02] via-opacity-50 to-[#01778f]"> -->
+		<div id="img-container" class="min-h-screen w-screen brightness-50">
+			<img src="https://epe.brightspotcdn.com/dims4/default/ae271bd/2147483647/strip/true/crop/2479x1682+521+0/resize/840x570!/quality/90/?url=https%3A%2F%2Fepe-brightspot.s3.amazonaws.com%2Fdc%2Fae%2Fd8bdd7ac4859b235889d2a9761cb%2Fvirus-outbreak-connecticut-20317860862791.JPG" class="w-full h-auto object-cover opacity-80 z-[-1] " id="main-img">
+		</div>
+		{% include "section.html" %}	
+		{% include "about.html " %}
+		{% include "drejtimi.html " %}
+		{% include "footer.html" %}
+		<script src="{% static 'js/main-section.js' %}"></script>
+		<script src="{% static 'js/navBtn.js' %}"></script>
+	</body>
+</html>

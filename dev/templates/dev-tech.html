@@ -1,0 +1,205 @@
+{% load static %}
+
+{% block content %}
+<style>
+	/*body {
+		overflow-x: hidden;
+	}*/
+	/* Mobile Devices (Portrait) */
+	@media only screen and (max-width: 480px) {
+		  #tech-container {
+		    top: 500%;
+		    left: 0;
+		  }
+
+		  #html-header {
+		    font-size: 2rem;
+		  }
+
+		  #css-header {
+		    font-size: 2rem;
+		  }
+
+		  #js-header {
+		    font-size: 2rem;
+		  }
+
+		  #html-content,
+		  #css-content,
+		  #js-content,
+		  #tailwind-content,
+		  #python-content,
+		  #django-content {
+		    width: 100%;
+		  }
+	}
+
+	/* Tablets and Small Desktops */
+	@media only screen and (min-width: 481px) and (max-width: 1024px) {
+	  #tech-container {
+	    top: 400%;
+	    left: 0;
+	  }
+	}
+
+	/* Medium Desktops and Laptops */
+	@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+	  #tech-container {
+	    top: 350%;
+	    left: 10%;
+	  }
+	}
+
+	/* Large Desktops and High Resolution Devices */
+	@media only screen and (min-width: 1441px) {
+	  #tech-container {
+	    top: 311%;
+	    left: 40%;
+	  }
+	}
+
+	@media only screen and (max-width:768px) {
+		#tech-container {
+			top: 330%;
+		}
+	}
+	
+	@media screen and (min-width: 425px){
+		#tech-container {
+			top: 300%;
+		}
+	}
+
+	 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        #tech-container {
+            top: 330%;
+            left: 10%;
+        }
+
+        .technology {
+            margin-top: 2rem;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .technology h1 {
+            font-size: 2rem;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    	#tech-container {
+    		top: 400%;
+    		left: 10%;
+    	}
+    }
+
+    @media screen and (min-width: 1920px) and (min-height: 1080px) {
+    	#tech-container {
+    		top: 404%;
+    	}
+
+    	.technology  h1 {
+    		font-size: 3.1rem;
+    	}
+
+    	.technology div p {
+    		font-size: 1.7rem;
+    		line-height: 36px;
+    	}
+    }
+</style>
+<div id="tech-container" class="absolute top-[311%] left-[40%] mx-auto w-full">
+	<div id="html" class="technology">
+		<h1 id="html-header" class="text-4xl font-semibold text-[#7B68EE]">HTML</h1>
+		<br/>	
+		<div id="html-content" class="text-base w-[55%]">
+			<p>HTML (Hypertext Markup Language) është gjuha standarde e shënuarjes së tekstit që përdoret për të krijuar faqe web. Ajo ofron një mënyrë për strukturimin e përmbajtjes në web dhe krijimin e lidhjeve mes faqeve të ndryshme, duke e bërë një pjesë themelore të programimit në web. HTML përdor një grup etiketash për të përshkruar lloje të ndryshme të përmbajtjes, si tituj, paragrafe, figura dhe lidhje, dhe këto etiketa interpretohen nga shfletuesit web për të shfaqur përmbajtjen në një mënyrë vizualisht tërheqëse.
+			<br/>
+			<p>HTML është shumë i rëndësishëm për programimin në web sepse lejon zhvilluesit të krijojnë faqe web që mund të interpretohen lehtësisht nga shfletuesit web. Pa HTML, faqet web do të ishin pa strukturë dhe të vështira për t'u naviguar, duke bërë që të jetë sfiduese për përdoruesit të gjejnë informacionin që ata kanë nevojë.</p>
+			<br/>
+			<p>Në krye të të gjitha, HTML është një komponent kritik i programimit në web, duke ofruar bazën për krijimin e faqeve web të strukturuara, vizualisht tërheqëse dhe të qasshme.</p>
+		</div>
+	</div>
+
+	<div id="css" class="technology">
+		<h1 id="css-header" class="text-4xl font-semibold text-[#7B68EE] mt-8">CSS</h1>
+		<br/>
+		<div id="css-content" class="text-base w-[55%]">
+			<p>CSS (Cascading Style Sheets) është një pjesë kritike e programimit të uebit që definon se si elementet HTML shfaqen në një faqe uebi. Është një gjuhë stilimi e përdorur për të përmirësuar pamjen vizuale të një uebi dhe bërë atë më tërheqës për përdoruesit.
+			Një nga karakteristikat kyçe të CSS është natyra e saj kaskaduese. Kjo do të thotë se mund të aplikohen shumë fleta stili në një faqe uebi, dhe ato do të aplikohen në një rend të caktuar, me të fundit që merr kryesore.
+			Një tjetër tipare e rëndësishme e CSS është aftësia e saj për të krijuar dizajne përgjigjëse, me anë të të cilave ueb-faqet bëhen responisve në çdo pajsje.</p>
+
+			<br/>
+			<p>CSS gjithashtu ofron një gamë të gjerë mundësish stilimi, si ndryshimi i stileve të shkronjave, ngjyrave, sfondit, kufinjve dhe pozicionimit të elementeve në një faqe. Kjo fleksibilitet e mundëson zhvilluesve të krijojnë dizajne unike dhe tërheqëse të uebfaqeve që reflektojnë identitetin e tyre të markës dhe që tërheqin vëmendjen e audiencës së tyre të synuar.</p>
+
+			<br/>
+			<p>Për të përfunduar, CSS është një aspekt kritik i programimit të uebit që luan një rol të rëndësishëm në dizajnin e uebit dhe eksperiencën e përdoruesit. Natyra e saj kaskaduese, reagimi dhe fleksibiliteti e bëjnë atë një mjet të fuqishë</p>
+		</div>
+	</div>
+
+	<div id="js" class="technology">
+		<h1 id="js-header" class="text-4xl font-semibold text-[#7B68EE] mt-8">JavaScript</h1>
+		<br/>
+		<div id="js-content" class="text-base w-[55%]">
+			<p>JavaScript është një gjuhë programimi e nivelit të lartë, dinamike dhe interpretuese, e cila përdoret gjerësisht në programimin e uebit. Është një gjuhë skriptuese që lejon zhvilluesit të shtojnë elemente interaktive dhe dinamike në faqet e uebit, duke i bërë ato më tërheqëse dhe miqësore për përdoruesit.</p>
+
+			<br/>
+			<p>
+				Një nga karakteristikat kryesore të JavaScript është ndryshueshmëria e tij. Ajo mund të përdoret për një gamë të gjerë detyrash, duke përfshirë validimin e formave, trajtimin e ngjarjeve, animacionin dhe ndërveprimin. Fleksibiliteti i JavaScript lejon zhvilluesit të krijojnë aplikacione web komplekse dhe dinamike që mund të trajtojnë hyrjen e përdoruesit, të bëjnë llogaritje dhe të përditësojnë përmbajtjen në çast.</p>
+
+			<br/>
+			<p>JavaScript është gjuhë programuse e pazëvëndësueshme në programimin e web-it, ku 98% e të gjitha ueb-faqeve janë të ndërtuara me JavaScript. JavaScripti në ditët e sotme nuk përdoret vetëm për progremimin e internetit, por ka rëndësi edhe te krijimi i aplikacioneve të Desktopit me frameworkin Electron, krijimin e aplikacioneve te telefonit me React Native, dhe programim ne server-side me Node.js, kjo tregon përdorimin e madh të kësaj gjuhe e cila ndoshta është më e populluara në botë.</p>
+		</div>
+	</div>
+
+	<div id="tailwind" class="technology">
+		<h1 id="tailwind-header" class="text-4xl font-semibold text-[#7B68EE] mt-8">Tailwind CSS</h1>
+		<br/>
+		<div id="tailwind-content" class="text-base w-[55%]">
+			<p>Tailwind CSS është një framework CSS i rëndësishëm të cilin e kanë fituar shumë popularitet zhvilluesit e ueb-it në vitet e fundit. Për dallim nga framework-et CSS tradicionale që ofrojnë komponentë të ndërtuar paraprakisht, Tailwind CSS fokusohet në sigurimin e një seti klasash CSS-je me përdorim të paracaktuar që mund të përdoren për të ndërtuar shpejt ndërfaqe përdoruesi të personalizuara.</p>
+
+			<br/>
+			<p>
+				Tailwind CSS është një framework CSS i parësishëm të cilin e kanë fituar shumë popularitet zhvilluesit e ueb-it në vitet e fundit. Për dallim nga framework-et CSS tradicionale që ofrojnë komponentë të ndërtuar paraprakisht, Tailwind CSS fokusohet në sigurimin e një seti klasash CSS-je me përdorim të paracaktuar që mund të përdoren për të ndërtuar shpejt ndërfaqe përdoruesi të personalizuara.</p>
+
+			<br/>
+			<p>Në përgjithësi Tailwind CSS është një CSS framework shumë i fuqishëm i cili i lejon përdoruesit të krijojë dizajne të shpejta.</p>
+		</div>
+	</div>
+
+	<div id="python" class="technology">
+		<h1 id="python-header" class="text-4xl font-semibold text-[#7B68EE] mt-8">Python</h1>
+		<br/>
+		<div id="python-content" class="text-base w-[55%]">
+			<p>Python është një gjuhë programimi të lartë të përkthyer që është bërë gjithnjë e më e popullarizuar gjatë viteve. Ajo u krijua për herë të parë në fund të viteve '80 dhe prej atëherë është bërë një nga gjuhët më të përdorura në botë, me aplikime në një shumëllojshmëri fushash.</p>
+
+			<br/>
+			<p>
+				Një nga avantazhet kryesore të Python është thjeshtësia dhe lehtësia e përdorimit. Gjuha është projektuar që të jetë e lehtë për t'u lexuar dhe shkruar, me një fokus në thjeshtësi dhe elegancë. Kjo e bën atë një zgjedhje të shkëlqyer për fillestarët që po fillojnë me programimin.</p>
+
+			<br/>
+			<p>Python është gjithashtu njohur për fleksibilitetin dhe gjasat e tij. Ajo mund të përdoret për një shumëllojshmëri detyrash, duke përfshirë zhvillimin e uebit, analizën e të dhënave, komputimin shkencor dhe mësimin e makinave. Kjo e bën atë një zgjedhje të popullarizuar midis zhvilluesve që duhet të punojnë në disa fusha.</p>
+		</div>
+	</div>
+
+	<div id="django" class="technology">
+		<h1 id="django-header" class="text-4xl font-semibold text-[#7B68EE] mt-8">Django</h1>
+		<br/>
+		<div id="django-content" class="text-base w-[55%]">
+			<p>Django është një strukturë e lartë web që është shkruar në Python. Është projektuar për të bërë zhvillimin e webit të shpejtë dhe të lehtë duke ofruar një set veglash dhe librash që zhvilluesit mund të përdorin për të ndërtuar aplikacione web të shkallëzueshme dhe të mirëmbajtshme.</p>
+
+			<br/>
+			<p>
+				Një nga avantazhet kyçe të Django është aftësia e tij për të trajtuar aplikacione web komplekse me lehtësi. Ajo ofron mbështetje të ndërtuar për detyra si rrafshimi, shabllonimi dhe trajtimi i bazave të të dhënave, që e bën të lehtë ndërtimin e aplikacioneve web të mëdha dhe komplekse.</p>
+
+			<br/>
+			<p>Django gjithashtu përfshin një sistemi të fuqishëm dhe fleksibël Object-Relational Mapping (ORM), që e bën të lehtë për të ndërvepruar me bazat e të dhënave duke përdorur kod Python. Kjo lejon zhvilluesit të krijojnë dhe manipulojnë struktura dhe marrëdhënie të dhënash të ndërlikuara, pa nevojën për të shkruar kërkesa SQL të ndërlikuara.</p>
+
+			<br/>
+			<p>Në përgjithësi, Django është një strukturë web e fuqishme dhe fleksibël që është projektuar për të bërë zhvillimin e webit të shpejtë dhe të lehtë. Fokusi i tij në siguri, shkallëzueshmëri dhe mirëmbajtje e bën atë një zgjedhje popullore për ndërtimin e aplikacioneve web të mëdha dhe të ndërlikuara, ndërsa komuniteti i madh siguron që ajo të mbetet e përditësuar dhe e rëndësishme në një peizazh të shpejtë të zhvillimit të web-it.</p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{% static 'js/contents.js' %}"></script>
+{% endblock %}

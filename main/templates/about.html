@@ -1,0 +1,191 @@
+{% load static %}
+
+{% block content %}
+<style>
+
+	#century-container {
+		max-width: 67%;
+	}
+
+	@media only screen and (max-width: 768px) {
+	  #about-container {
+	    top: -25rem;
+	    margin: 0.8rem;
+	  }
+	  #about-head {
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    align-items: center;
+	  }
+	  #about-header {
+	    font-size: 1.5rem;
+	    bottom: 98%;
+	  }
+	  #about-1-p {
+	    font-size: 1rem;
+	    margin-top: 1rem;
+	  }
+	  #foundation-container {
+	    margin-top: 4rem;
+	    top: 5%;/u
+
+/*	    width: 18rem;*/
+	  }
+	  #foundation-header {
+	    font-size: 1.5rem;
+	  }
+	  #foundation-text {
+	    font-size: 1rem;
+	    width: 100%;
+	  }
+	  #foundation-text img {
+	    position: static;
+	    margin-top: 2rem;
+	    margin-left: auto;
+	    margin-right: auto;
+	  }
+	  #century-container {
+	    margin-top: 4rem;
+	    position: static;
+	  }
+	  #century-header {
+	    font-size: 1.5rem;
+	  }
+	  #century-text {
+	    font-size: 1rem;
+	    width: 100%;
+	  }
+	  #century-text img {
+	    position: static;
+	    margin-top: 2rem;
+	    margin-left: auto;
+	    margin-right: auto;
+	    width: 80%;
+	  }
+
+	  #img-school {
+			bottom: 0;
+			left: 0;
+	  }
+
+	  #class-img {
+	  		top: 12%;
+	  		left: 0;
+	  }
+	}
+
+
+	@media only screen and (max-width: 320px){
+		#century-container {
+			width: 8rem;
+			margin-top: 1rem;
+			margin-right: 8rem;
+
+		}
+		/*#foundation-container {
+			margin-right: 8rem;
+			margin-top: 1rem;
+		}*/
+	}
+
+	@media only screen and (min-width: 768px) and (max-width: 1024px){
+		p {
+			font-size: 1.2rem;
+		}
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+
+		#about-head h1 {
+			font-size: 2.8rem;
+		}
+
+		#about-head p {
+			font-size: 1.8rem;
+			line-height: 40px;
+			width: 85%;
+		}
+
+		#foundation-header  {
+			font-size: 2.8rem;
+		}
+
+		#foundation-text  {
+			font-size: 1.8rem;
+			line-height: 40px;
+			width: 73%;
+		}
+
+		#century-header  {
+			font-size: 2.8rem;
+		}
+
+		#century-text {
+			font-size: 1.8rem;
+			line-height: 40px;
+		}
+
+		#logo-img {
+			width: 18rem;
+		}
+
+		#img-school {
+			width: 21%;
+			height: 13rem;
+			position: relative;
+			top: -18rem;
+			left: 73%;
+		}
+
+		#class-img {
+			top: -22rem;
+			width: 35rem;
+			left: 103%;
+		}
+	}
+
+
+	.overflow-hidden {
+		overflow: hidden;
+	}
+</style>
+<div id="about-container" class="relative top-[-30rem] mx-[3rem]">
+	<div id="about-head" class="flex relative top-[10%]">
+		<h1 id="about-header" class="text-3xl text-[#3bf8ff] my-4 absolute bottom-[103%] font-medium">MIRËSEVINI NË SHKOLLËN TONË</h1>
+		<p id="about-1-p" class="text-xl max-[768px]:leading-tight">Në Shkollën "Tafil Kasumaj", jemi të përkushtuar për ofrimin e një arsimi cilësor të lartë që i ndihmon nxënësit tanë të arrijnë potencialin e tyre të plotë. Stafi ynë me kualifikime të larta janë pasionantë për arsimin dhe të përkushtuar për të krijuar një mjedis të sigurt dhe të kujdesitës për nxënësit tanë.
+
+		Ne ofrojmë një kurrikulë të rreptë dhe të plotë që përfshin subjekte akademike themelore, kursesh zgjedhore dhe aktivitete jashtëshkollore për të përmbushur nevojat dhe interesat unike të nxënësve tanë. Ne besojmë se arsimi është më shumë se sa vetëm akademikët, dhe inkurajojmë nxënësit tanë të bëhen anëtarë aktivë dhe të përfshirë të komuniteteve të tyre.
+
+		Faleminderit për konsiderimin e Shkollës "Tafil Kasumaj" për arsimimin e të rinjëve tanë. Ne jemi krenarë për shkollën tonë dhe komunitetin që kemi ndërtuar dhe presim me padurim të ju mirëpresim ju dhe familjen tuaj në komunitetin tonë.</p>
+		<img src="./static/img/logo-iaap.jpg" id="logo-img">
+	</div>
+	<div id="foundation-container" class="my-[4rem] relative top-[15%] sm:right-0 sm:w-screen overflow-hidden">
+		<div id="big-border" class="w-[6.5rem] h-[0.8rem] bg-[#3bf8ff] my-[0.7rem]"></div>
+		<div id="foundation-header-wrapper">
+			<h1 id="foundation-header" class="text-3xl text-[#3bf8ff] font-medium ">Themeli</h1>
+		</div>
+		<div id="foundation-text-wrapper" class="my-[2rem]">
+			<p id="foundation-text" class="text-xl w-[75%] max-[768px]:leading-tight">Shkolla jonë u themelua me qëllim që të ofrojë një mjedis të sigurt dhe të inkurajueshëm për nxënësit tanë, dhe për të ndihmuar ata të zhvillojnë potencialin e tyre maksimal në fushën e arsimit.
+
+			Ne kemi krijuar një mision që vë në qendër të aktiviteteve tona arsimore qëllimin për të inkurajuar të gjithë nxënësit tanë të arrijnë suksesin dhe të bëhen pjesë e një shoqërie të ndershme dhe të kuptueshme.
+
+			Që nga themelimi ynë, ne kemi punuar vazhdimisht për të siguruar që shkolla jonë të ofrojë mësimdhënie të larta cilësore, kushte të mira të punës dhe një mjedis tërheqës dhe inkurajues për të gjithë nxënësit.
+
+			Ne kemi një staf të mrekullueshëm arsimor, të cilët janë të përkushtuar në ndihmën e nxënësve tanë për të arritur suksesin dhe për të krijuar një qëndrueshmëri të vërtetë në fushën e arsimit.</p>
+			<img src="./static/img/shkollaV2.jpg" class="relative bottom-[12rem] left-[75%]" id="img-school">
+		</div>
+	</div>
+	<!-- Here -->
+	<div id="century-container" class="w-[75%] my-[4rem] relative top-[-10rem] sm:right-0 sm:w-screen  ">
+		<div id="big-border2" class="w-[6.5rem] h-[0.8rem] bg-[#3bf8ff] my-[0.7rem]"></div>
+		<div id="century-header-wrapper">
+			<h1 id="century-header" class="text-3xl text-[#3bf8ff] font-medium ">Klasat e shek. XXI</h1>
+		</div>
+		<div id="century-text-wrapper" class="my-[2rem] max-[320px]:w-[18rem] max-[375px]:w-[22rem]">
+			<p id="century-text" class="text-xl max-[768px]:leading-tight ">Miresevini ne klasen tone te shekullit te 21! Ambienti ynë i mesimit është projektuar për të përgatitur nxënësit për botën e shpejtë dhe teknologjikisht të zhvilluar që ata do të hasin jashtë mureve të klasës. Me fokus në mësimin bashkëpunues dhe bazuar në projekte, nxënësit inkurajohen të punojnë së bashku për të zgjidhur probleme reale duke përdorur teknologjinë e fundit dhe metoda mësimore inovative. Kurrikula jonë thekson aftësitë e mendimit kritik, krijueshmërisë dhe komunikimit, ndërsa ne përpiqemi të zhvillojmë nxënës që janë të gatshëm të mësojnë gjatë gjithë jetës dhe zgjidhës të pranishëm. Pedagogët tanë të përkushtuar dhe të pasionuar janë të angazhuar për të siguruar që çdo nxënës të arrijë potencialin e tyre në këtë komunitet të mesimit dinamik dhe tërheqës.</p>
+			<img src="./static/img/XXI.webp" id="class-img" class="relative left-[100%] top-[-16rem]
+			w-[30rem]">
+		</div>
+	</div>
+</div>
+{% endblock %}

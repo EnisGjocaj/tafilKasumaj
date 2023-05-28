@@ -1,0 +1,558 @@
+{% load static %}
+
+{% block content %}
+<style>
+	#tech-diagram {
+	  width: 57rem;
+	  height: 23rem;
+	  margin: 3rem;
+	  background-color: white;
+/*	  border: 1px solid black;*/
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: center;
+	  align-items: center;
+	  align-content: center;
+	  text-align: center;
+	  gap: 73px;
+	  padding: 2rem;
+	  position: relative;
+	  right: 15%;
+	  top: 0%;
+	}
+
+	.item {
+	  background-color: white;
+	  border-radius: 50%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  align-content: center;
+	  width: 4rem;
+	}
+
+	#img1 {
+		width: 80px;
+	}
+
+	.brace1 {
+	  width: 6em;
+	  height: 7em;
+	}
+	.brace_part1 {
+	  border-left: 2px solid black;
+	  border-top-left-radius: 12px;
+	  margin-left: 5.920em;
+	}
+	.brace_part2 {
+	  border-right: 2px solid black;
+	  border-bottom-right-radius: 12px;
+	}
+	.brace_part3 {
+	  border-right: 2px solid black;
+	  border-top-right-radius: 12px;
+	}
+	.brace_part4 {
+	  border-left: 2px solid black;
+	  border-bottom-left-radius: 12px;
+	  margin-left: 5.920em;
+	}
+
+
+	.brace2 {
+		width: 2rem;
+		height: 3rem;
+	}
+	.brace2_part1 {
+	  border-left: 2px solid black;
+	  border-top-left-radius: 12px;
+	  margin-left: 1.68em;
+	}
+	.brace2_part2 {
+	  border-right: 2px solid black;
+	  border-bottom-right-radius: 12px;
+	}
+	.brace2_part3 {
+	  border-right: 2px solid black;
+	  border-top-right-radius: 12px;
+	}
+	.brace2_part4 {
+	  border-left: 2px solid black;
+	  border-bottom-left-radius: 12px;
+	  margin-left: 1.68em;
+	}
+
+	/*classes to make the table of contents section fixed*/
+	.position-absolute {
+		position: absolute;
+		top: 100%;
+		left: 7%;
+	}
+
+	.position-fixed {
+		position: fixed;
+		top: 22%;
+		left: 7%;
+	}
+
+	.content-shadow {
+		background-color: lightgray;
+		padding: 5px;
+		border-radius: 10px;
+	}
+
+	/* For devices with a maximum width of 640px */
+	@media only screen and (max-width: 640px) {
+		  #main-dev {
+		    top: 200%; /* adjust this value as needed */
+		  }
+		  #contents-dev {
+		    width: 100%;
+		    height: auto;
+		    border-right: none;
+		    border-bottom: 8px solid gray;
+		  }
+		  #first-content {
+		    margin: 1.2rem 0;
+		  }
+		  #ul-contents {
+		    margin: 0.8rem 0;
+		  }
+		  #div-end-content {
+		    margin: 1.2rem 0;
+		  }
+		  #tech-description {
+		    width: 100%;
+		    top: 15%;
+		    left: 0;
+		    text-align: center;
+		  }
+	}
+
+	/* For devices with a minimum width of 641px and a maximum width of 768px */
+	@media only screen and (min-width: 641px) and (max-width: 768px) {
+		  #main-dev {
+		    top: 150%; /* adjust this value as needed */
+		  }
+		  #contents-dev {
+		    width: 100%;
+		    height: auto;
+		    border-right: none;
+		    border-bottom: 8px solid gray;
+		  }
+		  #first-content {
+		    margin: 1.2rem 0;
+		  }
+		  #ul-contents {
+		    margin: 0.8rem 0;
+		  }
+		  #div-end-content {
+		    margin: 1.2rem 0;
+		  }
+		  #tech-description {
+		    width: 100%;
+		    top: 15%;
+		    left: 0;
+		    text-align: center;
+		  }
+	}
+
+	/* For devices with a minimum width of 769px */
+	@media only screen and (min-width: 769px) {
+		  #main-dev {
+		    top: 133%; /* adjust this value as needed */
+		  }
+		  #contents-dev {
+		    width: 25rem;
+		    height: 28rem;
+		    border-right: 8px solid gray;
+		    border-bottom: none;
+		  }
+		  #first-content {
+		    margin: 1.6rem 0;
+		  }
+		  #ul-contents {
+		    margin: 1.2rem 0;
+		  }
+		  #div-end-content {
+		    margin: 1.6rem 0;
+		  }
+		  #tech-description {
+		    width: 48%;
+		    top: 6%;
+		    left: 39%;
+		    text-align: left;
+		  }
+	}
+
+	@media screen and (max-width: 768px) {
+		#tech-stack-title {
+			font-size: 0.86rem;
+			top: 10%;
+
+		}
+		#tech-diagram {
+		  width: 19rem;
+		  height: 9rem;
+		  margin: 1rem;
+		  gap: 14px;
+		  padding: 1rem;
+		  border: none;
+		}
+
+		.tech-name {
+			font-size: 0.6rem;
+		}
+
+		.tech-img {
+			width: 42px;
+		}
+
+		.brace1, .brace2 {
+			display: none;
+		}
+
+		#frontend, #backend {
+			display: none;
+		}
+	}
+
+	@media  screen and (min-width: 320px) and (max-width: 375px) {
+  		#tech-diagram {
+  		   position: relative;
+  		   right: 15%;
+  		}
+	}
+
+	@media only screen and (min-width: 375px) and (max-width: 425px) {
+	    #tech-diagram {
+  		   position: relative;
+  		   right: 7%;
+  		}
+	}
+
+	@media screen and (min-width: 425px) and (max-width: 768px){
+		#tech-diagram {
+			left: 5%;
+		}
+	}
+	@media only screen and (min-width: 768px) and (max-width: 1023px) {
+		#contents-dev {
+			display: none;
+		}
+
+		#tech-diagram {
+			left: -10%;
+			width: 50rem;
+	  		height: 19.6rem;
+	  		gap: 50px;
+		}
+
+		#tech-stack-title {
+			font-size: 1.5rem;
+		}
+
+		.item img {
+			width: 65px;
+		}
+
+		.item p {
+			font-size: 1.2rem;
+		}
+
+		#text-tech-description {
+			max-width: 85%;
+			margin-left: 4rem;
+			margin-right: 4rem;
+
+		}
+
+		#tech-description {
+			font-size: 1rem;
+			max-width: 90%;
+			margin-left: 1rem;
+			margin-right: 1rem;
+			position: relative;
+			left: 2%;
+		}
+
+		#tech-description h5{
+			font-size: 1.5rem;
+			
+		}
+	}
+
+	@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+		#header-tech-descripton {
+			position: relative;
+			left: 15%;
+			bottom: 20rem;
+
+		}
+
+		#contents-dev {
+			position: relative;
+			top: 10%;
+			font-size: 1.1rem;
+			width: 15rem;
+			height: 20rem;
+		}
+
+		#tech-diagram {
+			position: relative;
+			right: 90%;
+			bottom: 20rem;
+		}
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+		#tech-description {
+			font-size: 1.9rem;
+			line-height: 45px;
+			left: 40%;
+			gap: 80px;
+		}
+
+		#tech-description h5 {
+			font-size: 2.3rem;
+		}
+
+		#desc-p {
+			margin-top: 5rem;
+		}
+
+		#contents-dev {
+			width: 32.5rem;
+			height: 36.4rem;
+		}
+
+		#teble-content-header {
+			font-size: 2.3rem;
+		}
+
+		#first-content p {
+			font-size: 1.6rem;
+		}
+
+		#div-end-content p {
+			font-size: 1.6rem;
+		}
+
+		#ul-contents li {
+			margin-bottom: 2rem;
+			margin-top: 2rem;
+		}
+
+		#ul-contents li a {
+			font-size: 1.8rem;
+		}
+
+		/*TEST TECH DIAGRAM*/
+
+		#tech-diagram {
+			margin-top: 18rem;
+			left: -24%;
+			width: 80rem;
+	  		height: 19.6rem;
+	  		gap: 90px;
+		}
+
+		#tech-stack-title {
+			display: none;
+		}
+
+		#tech-stack-title-big {
+			display: block;
+			font-size: 2.5rem;
+			top: 85%;
+			left: 35%;
+		}
+
+		.item {
+			width: 6rem;		
+		}
+
+		#img1 {
+			width: 111px;
+			margin-bottom: 3rem;
+		}
+
+		.item img {
+			width: 111px;
+			margin-bottom: 3rem;
+		}
+
+		.item p {
+			font-size: 1.7rem;
+		}
+
+		#brace1 {
+			top: -2rem;
+			left: 21rem;
+		}
+
+		#brace2 {
+			left: 75%;
+			top: 11rem;
+		}
+
+		.brace1 {
+			width: 4.5em;
+			height: 5.5em;
+		}
+
+		.brace_part1 {
+		  border-left: 3px solid black;
+		  border-top-left-radius: 12px;
+		  margin-left: 4.3995em;
+		}
+		.brace_part2 {
+		  border-right: 3px solid black;
+		  border-bottom-right-radius: 12px;
+		}
+		.brace_part3 {
+		  border-right: 3px solid black;
+		  border-top-right-radius: 12px;
+		}
+		.brace_part4 {
+		  border-left: 3px solid black;
+		  border-bottom-left-radius: 12px;
+		  margin-left: 4.3995em;
+		}
+
+		.brace2 {
+			width: 3rem;
+			height: 4rem;
+		}   
+		.brace2_part1 {
+		  border-left: 3px solid black;
+		  border-top-left-radius: 12px;
+		  margin-left: 1.5em;
+		}
+		.brace2_part2 {
+		  border-right: 3px solid black;
+		  border-bottom-right-radius: 12px;
+		}
+		.brace2_part3 {
+		  border-right: 3px solid black;
+		  border-top-right-radius: 12px;
+		}
+		.brace2_part4 {
+		  border-left: 3px solid black;
+		  border-bottom-left-radius: 12px;
+		  margin-left: 1.5em;
+		}
+
+		#frontend {
+			top: 22rem;
+			left: 10rem;
+		}
+
+		#frontend p {
+			font-size: 1.8rem;
+		}
+
+		#backend {
+			top: 22rem;
+			left: 44rem;
+		}
+
+		#backend p {
+			font-size: 1.8rem;
+		}
+	}
+</style>
+<div id="main-dev" class="absolute top-[133%] w-screen">
+	<div id="contents-dev" class="position-absolute w-[25rem] h-[28rem] border-r-8 border-r-solid border-r-gray text-xl z-50">
+		<h3 id="teble-content-header" class="text-2xl text-[#03004f] my-6 relative right-[5%] font-semibold">Përmbajtja</h3>
+		<div id="first-content" class="my-1.6">
+			<p class=" cursor-pointer text-lg text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">Hyrje</p>
+		</div>
+		<ul id="ul-contents" class="text-xl my-6">
+			<li id="tech-1" class=" my-2">
+				<a href="#" id="tech-a-1" class="cursor-poiner text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">HTML</a>
+			</li>	
+			<li id="tech-2" class="my-2.5">
+				<a href="#" id="tech-a-2" class="cursor-pointer text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">CSS</a>
+			</li><li id="tech-3" class=" my-2.5">
+				<a href="#" id="tech-a-3" class="cursor-pointer text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">JavaScript</a>
+			</li><li id="tech-4" class=" my-2.5">
+				<a href="#" id="tech-a-4" class="cursor-pointer text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">Tailwind</a>
+			</li><li id="tech-5" class=" my-2.5">
+				<a href="#" id="tech-a-5" class="cursor-pointer text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">Python</a>
+			</li><li id="tech-6">
+				<a href="#" id="tech-a-6" class="cursor-pointer text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">Django</a>
+			</li>
+		</ul>
+		<div id="div-end-content" class="my-6">
+			<p class="text-lg cursor-pointer text-black hover:text-[#7B68EE] transition-colors duration-500 ease-in-out">Përfundimi: Cfare Tech-Stack duhet të zgjedhim?</p>
+		</div>
+	</div>
+	<div id="tech-description" class="text-lg w-[48%] relative left-[70%]">
+		<div id="header-tech-descripton">
+			<p id="text-tech-description"><h5 class="text-xl font-semibold text-[#7B68EE]">Introduksion:</h5>
+				<br/>
+
+				Projekti full stack Django që kam krijuar është një aplikacion web që përdor HTML, CSS, JS, tailwindcss, Django dhe Python për të krijuar një përvojë interaktive dhe angazhuese për përdoruesit. Aplikacioni ofron një set të pasur të veçorive, duke përfshirë autentikim të përdoruesit, operacione CRUD, shfaqje të përmbajtjes dinamike dhe më shumë, duke e bërë atë një mjet të fuqishëm për biznese dhe individë.
+
+				<h5 id="desc-p" class="text-xl font-semibold text-[#7B68EE] mt-8">Përshkrim:</h5>
+				<br/>
+				Projekti është ndërtuar duke përdorur framework-un web Django, i cili është një mjet i fuqishëm dhe fleksibël për zhvillimin e aplikacioneve web në Python. Frameworku është i lëvizshëm dhe lehtë për t'u rregulluar dhe shtuar veçori të reja sipas nevojës. Pjesa e front-endit të aplikacionit është krijuar duke përdorur HTML, CSS dhe JS, ndërsa tailwindcss ofron mundësi shtesë stilizimi.
+
+				Një nga veçoritë kyçe të aplikacionit është autentikimi i përdoruesit, që lejon përdoruesit të krijojnë llogari dhe të hyjnë për të pasur qasje në përmbajtje të personalizuar. Aplikacioni gjithashtu përfshin funksionimin CRUD (Krijo, Lexo, Përditëso, Fshi), duke lejuar përdoruesit të krijojnë përmbajtje të re, të ndryshojnë përmbajtjen ekzistuese dhe të fshijnë përmbajtjen sipas nevojës. Mundësitë e shfaqjes së përmbajtjes dinamike të Django lejojnë një përvojë tërheqëse për përdoruesit, me përmbajtje që përditësohet në kohë reale pa nevojën për rifreskim faqeje.
+
+				Projekti gjithashtu përfshin një gamë të gjërë veçorish shtesë, si njoftime me email, ngarkim të skedarëve dhe funksionimi i kërkimit, duke e bërë atë një aplikacion web tërheqës dhe me shumë funksionalitete. Struktura e kodit të pastër dhe të organizuar të projektin e bën atë të lehtë për të mbajtur dhe përditësuar sipas nevojës, duke siguruar që ai të mbetet një mjet i besueshëm.
+
+				Në përgjithësi, projekti full stack Django që kam krijuar është një mjet i fuqishëm dhe fleksibël për biznese dhe individe, duke ofruar një gamë të gjerë të veçorive dhe aftësive për të plotësuar një gamë të gjerë të nevojave. Qoftë duke kërkuar të krijoni një blog të thjeshtë ose një aplikacion web kompleks, ky projekt ka gjithçka që ju nevojitet për të filluar.
+		   </p>
+		</div>
+		<div id="tech-diagram">
+			<p class="text-lg font-semibold absolute top-[14%] justify-center" id="tech-stack-title">My Tech Stack</p>
+			<div id="tech1" class="item">
+				<img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_512.png" id="img1" class="tech-img">
+				<p class="absolute top-[66%] text-sm text-slate-900 tech-name">HTML</p>
+			</div>
+			<div id="tech2" class="item">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png" id="img2" class="tech-img">
+				<p class="absolute top-[66%] text-sm text-slate-900 tech-name">CSS</p>
+				<div id="brace1" class="absolute top-[10%] left-[14.5rem] rotate-[-90deg]">
+					<div class="brace1 brace_part1"></div>
+					<div class="brace1 brace_part2"></div>
+					<div class="brace1 brace_part3"></div>
+					<div class="brace1 brace_part4"></div>
+				</div>
+			</div><div id="tech3" class="item">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" id="img3" class="tech-img">
+				<p class="absolute top-[66%] text-sm text-slate-900 tech-name">JavaScript</p>
+			</div><div id="tech4" class="item">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png" id="img4" class="tech-img">
+				<p class="absolute top-[66%] text-sm text-slate-900 tech-name">Tailwind</p>
+			</div><div id="tech5" class="item">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" id="img5" class="tech-img">
+				<p class="absolute top-[66%] text-sm text-slate-900 tech-name">Python</p>
+			</div>
+			<div id="tech6" class="item">
+				<img src="https://cdn.worldvectorlogo.com/logos/django.svg" id="img6" class="tech-img">
+				<p class="absolute top-[66%] text-sm text-slate-900 tech-name">Django</p>
+				<div id="brace2" class="absolute top-[52%] left-[44rem] rotate-[-90deg]">
+					<div class="brace2 brace2_part1"></div>
+					<div class="brace2 brace2_part2"></div>
+					<div class="brace2 brace2_part3"></div>
+					<div class="brace2 brace2_part4"></div>
+				</div>
+			</div>
+			<div id="frontend" class="absolute top-[85%] left-[50px] mx-[15rem]">
+				<p class="text-lg font-semibold text-slate-900 italic">Front-End</p>
+			</div>
+			<div id="backend" class="absolute top-[85%] left-[455px] mx-[15rem]">
+				<p class="text-lg font-semibold text-slate-900 whitespace-nowrap italic">Back-End</p>
+			</div>
+		</div>
+		<p class="hidden text-lg font-semibold absolute top-[50%] justify-center" id="tech-stack-title-big">My Tech Stack</p>
+	</div>
+</div>
+{% include "dev-tech.html"%}
+<!-- <script src="{% static 'js/dev.js' %}"></script> -->
+{% endblock %}
+
+ 

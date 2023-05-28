@@ -1,0 +1,243 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+<style>
+
+	body {
+		overflow-x: hidden;
+	}
+
+	.username-field {
+		border: 1px solid gray;
+		width: 30%;
+		height: 3.5rem;
+		padding: 1rem;
+		margin-bottom: 1rem;
+
+	}
+	.email-field {
+		border: 1px solid gray;
+		width: 30%;
+		height:3.5rem;
+		padding: 1rem;
+		margin-bottom: 1rem;
+
+	}.text-field {
+		border: 1px solid gray;
+		width: 35%;
+		height: 15rem;
+		padding: 1rem;
+		resize: none;
+	}
+
+	label[for="id_username"] {
+	  display: none;
+	}
+	label[for="id_email"] {
+	  display: none;
+	}
+	label[for="id_text"] {
+	  display: none;
+
+	}
+
+	.form-group {
+		position: relative;
+		left: 10%;
+	}
+
+	@media screen and (min-width: 768px) {
+  		.username-field {
+			border: 1px solid gray;
+			width: 25%;
+			height: 2.5rem;
+			padding: 1rem;
+			margin-bottom: 1rem;
+
+		}
+		.email-field {
+			border: 1px solid gray;
+			width: 25%;
+			height:2.5rem;
+			padding: 1rem;
+			margin-bottom: 1rem;
+
+		}.text-field {
+			border: 1px solid gray;
+			width: 40%;
+			height: 10rem;
+			padding: 1rem;
+			resize: none;
+		}
+
+		.form-group {
+			position: relative;
+			left: 10%;
+		}
+		#btn-report {
+			top: 92%;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+  		.username-field {
+			border: 1px solid gray;
+			width: 80%;
+			height: 2.15rem;
+			padding: 1rem;
+			margin-bottom: 2rem;
+
+		}
+		.email-field {
+			border: 1px solid gray;
+			width: 80%;
+			height:2.15rem;
+			padding: 1rem;
+			margin-bottom: 2rem;
+
+		}.text-field {
+			border: 1px solid gray;
+			width: 85%;
+			height: 15rem;
+			padding: 1rem;
+			resize: none;
+		}
+
+		.form-group {
+			position: relative;
+			left: 10%;
+		}
+		#btn-report {
+			top: 90%;
+		}
+	}
+
+	@media screen and (min-width: 769px) and (max-width: 1024px) {
+		.username-field {
+			border: 1px solid gray;
+			width: 30%;
+			height: 3.5rem;
+			padding: 1rem;
+			margin-bottom: 1rem;
+
+		}
+		.email-field {
+			border: 1px solid gray;
+			width: 30%;
+			height:3.5rem;
+			padding: 1rem;
+			margin-bottom: 1rem;
+
+		}.text-field {
+			border: 1px solid gray;
+			width: 35%;
+			height: 15rem;
+			padding: 1rem;
+			resize: none;
+		}
+
+		.form-group {
+			
+			left: 5%;
+		}
+	}
+
+	@media screen and (min-width: 1025px) {
+		.username-field {
+			border: 1px solid gray;
+			width: 30%;
+			height: 3.5rem;
+			padding: 1rem;
+			margin-bottom: 1rem;
+
+		}
+		.email-field {
+			border: 1px solid gray;
+			width: 30%;
+			height:3.5rem;
+			padding: 1rem;
+			margin-bottom: 1rem;
+
+		}.text-field {
+			border: 1px solid gray;
+			width: 35%;
+			height: 15rem;
+			padding: 1rem;
+			resize: none;
+		}
+
+		.form-group {
+			position: relative;
+			left: 10%;
+
+		}
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+		#btn-report {
+			width: 11.8rem;
+			height: 5.08rem;
+			font-size: 1.8rem;
+			left: 10%;
+			top: 80%;
+
+		}
+
+		#report-header {
+			font-size: 2.8rem;
+		}
+
+		.username-field {
+			width: 24rem;
+			height: 4.2rem;
+			font-size: 2rem;
+		}
+
+		.email-field {
+			width: 24rem;
+			height: 4.2rem;
+			font-size: 2rem;
+			margin-top: 1rem;
+		}
+
+		.text-field {
+			width: 48rem;
+			height: 18rem;
+			font-size: 2rem;
+			margin-top: 1rem;
+		}
+
+		.form-group {
+			position: relative;
+			top: 5rem;
+		}
+	}
+
+</style>
+
+<div id="report-container" class="text-xl">
+	<form method="POST">
+		{% csrf_token %}
+		<h1 id="report-header" class="font-semibold text-4xl m-10">Raporto</h1>
+			  <div class="form-group">
+			    <label for="{{ form.username.id_for_label }}" class="mx-4" data-placeholder="Enter your username">Username:</label>
+			    	{{ form.username|add_class:"username-field"}}
+			  </div>
+			  <div class="form-group" class="mx-4">
+			    <label for="{{ form.email.id_for_label }}" class="mx-4"  data-placeholder="Enter your email">Email:</label>
+			    	{{ form.email|add_class:"email-field"}}
+			  </div>
+			  <div class="form-group" class="mx-4">
+			    <label for="{{ form.text.id_for_label }}" class="mx-4" data-placeholder="Enter your text">Text:</label>
+			    	{{ form.text|add_class:"text-field" }}
+			  </div>
+        <button type="submit" id="btn-report" class="text-white bg-[#040940] rounded-md p-2 w-[7rem] h-[3rem] absolute top-[85%] left-[10%] text-lg text-center">Report now</button>
+	</form>
+</div>
+{% endblock %}

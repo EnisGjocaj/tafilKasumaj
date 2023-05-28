@@ -1,0 +1,63 @@
+{% block sidebar %}
+
+<style>
+	@media screen and (max-height: 480px) {
+	  	#big-container {
+	  		top: 22%;
+	  		height: 19rem;
+	  		width: 30rem;
+	  		font-size: 0.875rem;
+	  		line-height: 1.25rem;
+	  		left: 60%;
+	  	}
+	  	#go-page-btn {
+	  		top: 10%;
+	  	}
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+		#big-container {
+			width: 37.4rem;
+			height: 32.38rem;
+			left: 60%;
+			top: 28.5%;
+		}
+
+		#about-header {
+			font-size: 2.55rem;
+			margin-bottom: 1rem;
+			padding: 1rem;
+		}
+
+		#card-content {
+			font-size: 1.8rem;
+			line-height: 42px;
+			margin-top: 0.5rem;
+		}
+
+		#btn-form {
+			top: 0.4rem;
+			left: 1.5rem;
+		}
+
+		#go-page-btn {
+			width: 15.4rem;
+			height: 4.62rem;
+			font-size: 1.85rem;
+		}
+	}
+</style>
+
+<div id="big-container" class="absolute top-[31%] left-[68%] border-slate-300 border-2 border-solid p-7 text-lg w-[25rem] h-[23rem] max-[1320px]:mr-[45px] max-[1315px]:left-[60%] max-[1061px]:left-[55%] max-[1061px]:w-[25rem] max-[1061px]:h-[20rem] max-[920px]:w-[20rem] 
+max-[920px]:h-[22rem] max-[840px]:hidden">
+	<div>
+		<h5 id="about-header" class="mx-2 border-slate-300 border-b-[4px] max-[1920px]:border-b-[6px] border-solid text-2xl p-2 max-[920px]:text-xl">About</h5>
+		<div id="card-body" class="mx-4 p-2 text-lg max-[1061px]:mx-4 max-[920px]:text-base">
+			<p id="card-content">Ky blog është krijuar me Django web framework në Back End, e mbështetur në gjuhën programuese Python, kurse Front End është krijuar me HTML/CSS dhe frameworkin e CSS-it, Tailwind CSS.</p>
+		</div>
+		<form id="btn-form" class="relative top-[14%] left-[7%] max-[1061px]:top-[20%]">
+			<button id="go-page-btn" class="w-[10rem] h-[3rem] p-2 rounded-md text-white bg-[#e35349] text-center max-[920px]:w-[7rem] h-[10rem] text-lg"><a href="{% url 'main:home' %}">Vizito faqen</a></button>
+		</form>
+	</div>
+</div>
+{% endblock sidebar %}

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+	.card-body-blog {
+        transition: all 0.4s ease-in-out;
+	}
+
+	.card-body-blog:hover {
+		border: 2px solid #093E80;
+	}
+
+	#post-special {
+		color: white;
+		background-color: #040940;
+      transition: all 1s ease-in-out;
+	}
+
+	.overflow-hidden {
+		overflow: hidden;
+	}
+
+	.card-text-fade {
+	  position: relative; /* make the gradient overlay position relative to this element */
+	  display: inline-block; /* make the element only as wide as its content */
+/*	  background: linear-gradient(to bottom, rgba(4, 9, 64, 1) 50%, rgba(4, 9, 64, 1) 80%);*/
+	  /* use a gradient that starts fully opaque (white) at the top, and fades out (transparent) at the bottom */
+	}
+
+	.card-text-fade::after {
+	  content: "";
+	  position: absolute; /* position the overlay relative to the parent element */
+	  bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 1.75em; /* set the height of the overlay to match the height of the last line of text */
+	  /* use the same gradient as the parent element */
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+		#main {
+			left: 11%;
+		}
+
+		.posta {
+			width: 47rem;
+			height: 35rem;
+		}
+
+		#card-title {
+			font-size: 3.1rem;
+			margin-left: 0.5rem;
+			margin-top: 1.2rem;
+			margin-bottom: 0.3rem;
+		}
+
+		#card-header {
+			font-size: 1.75rem;
+			margin-left: 0.5rem;
+			margin-top: 1.2rem;
+		}
+
+		#card-text {
+			font-size: 1.75rem;
+			line-height: 40.32px;
+			height: 13.1rem;
+			position: relative;
+			top: 1.7rem;
+		}
+
+		#buttons {
+			top: 83%;
+		}
+
+		#delete-btn, #read-btn {
+			padding-right: 1.8rem;
+			padding-bottom: 1.2rem;
+			padding-top: 1.2rem;
+			padding-left: 1.8rem;
+			font-size: 1.8rem;
+		}
+	}
+
+</style>
+<header>
+	<div id="overlay"></div>
+
+</header>
+<div id="main" class="absolute top-[25%] left-[20%] max-[1320px]:left-[10%] max-[1300px]:left-[5%] max-[1132px]:left-[2%] max-[1060px]:left-[1%]
+max-[840px]:left-[11.5%] max-[640px]:left-[5%] max-[766px]:left-[3%] max-[574px]:left-[1%] max-[547px]:left-[0.5%] max-[495px]:mx-2 max-[452px]:mx-1 max-[449px]:mx-0.5 max-[405px]:mx-[0.1rem] max-[384px]:mx-[0.08rem] max-[330px]:ml-[0.5rem]">
+   <div id="main-div">
+   	 {% for post in post_list %}
+   	 <div id="post" class="relative">
+   	 	<div id="post{% if post.author.username == 'Enis' %}-special{% endif %}" class="z-[-100] posta text-lg p-6 w-[35rem] h-[26rem] rounded-md m-10 border-2 border-slate-400 border-solid shadow-2xl card-body-blog max-[1061px]:text-base max-[1061px]:w-[25rem] h-[16rem] max-[840px]:text-lg max-[840px]:p-6 max-[840px]:w-[35rem] max-[840px]:h-[26rem] max-[640px]:w-[30rem] max-[640px]:h-[21rem] max-[640px]:text-base max-[538px]:w-[27rem] max-[538px]:h-[18rem] max-[538px]:text-sm max-[495px]:w-[24rem] max-[495px]:h-[17rem] max-[449px]:w-[21rem] max-[449px]:h-[17rem] max-[405px]:w-[19rem] max-[405px]:h-[16rem] max-[405px]:text-xs
+   	 	max-[384px]:w-[17rem] max-[330px]:ml-[0.5rem]">
+   	 		<h2 id="card-title" class="text-4xl font-semibold mb-4 max-[538px]:text-2xl max-[384px]:text-xl">{{ post.title }}</h2>
+   	 		<p id="card-header" class="mb-10 text-slate-500 max-[640px]:mb-4 max-[495px]:mb-0.5 max-[405px]:mb-[0.1rem] max-[384px]:mb-[0.07rem]">{{ post.author }} | {{ post.created_on}}</p>
+   	 		<p id="card-text" class="mb-[10rem] z-2 h-[7.4rem] leading-7 card-text-fade overflow-hidden">{{post.content}}</p>
+   	 		<div id="buttons" class="absolute right-0 bottom-0 left-[15%] top-[80%] max-[538px]:top-[83%] max-[405px]:top-[85%] max-[384px]:top-[85.6%]">
+   	 			<a href="{% url 'blog:post_detail' post.slug %}" id="read-btn" class="z-[9999] text-white bg-[#040940] rounded-md p-4 w-[7rem] h-[2rem] text-lg text-center max-[538px]:w-[6rem] max-[538px]:h-[1rem] max-[538px]:text-base max-[495px]:w-[3rem] max-[495px]:h-[0.3rem] max-[495px]:text-sm max-[449px]:w-[
+   	 			2rem] max-[449px]:h-[0.1rem] max-[449px]:text-xs max-[405px]:1rem max-[384px]:w-[0.8rem] max-[384px]:h-[0.17rem]">Read More</a>
+   	 		
+	   	 		{% if request.user == post.author %}
+						<a href="{% url 'blog:delete_post' post.id %}" id="delete-btn" class="z-[9999] text-white bg-[#FB0101] rounded-md p-4 w-[7rem] h-[2rem] text-lg text-center max-[538px]:w-[6rem] max-[538px]:h-[1rem] max-[538px]:text-base max-[495px]:w-[3rem] max-[495px]:h-[0.3rem] max-[495px]:text-xs max-[405px]:h-[0.06rem] max-[384px]:w-[0.8rem] max-[384px]:h-[0.17rem]">Delete</a>
+					{% endif %}
+	   	 		</div>	
+   	 	</div>
+   	 </div>
+   	 {% endfor %}
+   </div>
+</div>
+{% endblock %}

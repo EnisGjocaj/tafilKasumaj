@@ -1,0 +1,620 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Development</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+			body {
+
+				font-family: 'Open Sans', sans-serif;
+				z-index: 1;
+			}
+
+			#hamburger-btn {
+				display: none;
+			}
+
+			#navbar {
+				visibility: hidden;
+			}
+
+			.overflow-hidden {
+				overflow: hidden;
+			}
+
+			.techBtn {
+				-webkit-text-size-adjust: 100%;
+			    -webkit-tap-highlight-color: transparent;
+			    --wp--preset--font-size--normal: 16px;
+			    --wp--preset--font-size--huge: 42px;
+			    --swiper-theme-color: #007aff;
+			    --swiper-navigation-size: 44px;
+			    --wp--preset--color--black: #000000;
+			    --wp--preset--color--cyan-bluish-gray: #abb8c3;
+			    --wp--preset--color--white: #ffffff;
+			    --wp--preset--color--pale-pink: #f78da7;
+			    --wp--preset--color--vivid-red: #cf2e2e;
+			    --wp--preset--color--luminous-vivid-orange: #ff6900;
+			    --wp--preset--color--luminous-vivid-amber: #fcb900;
+			    --wp--preset--color--light-green-cyan: #7bdcb5;
+			    --wp--preset--color--vivid-green-cyan: #00d084;
+			    --wp--preset--color--pale-cyan-blue: #8ed1fc;
+			    --wp--preset--color--vivid-cyan-blue: #0693e3;
+			    --wp--preset--color--vivid-purple: #9b51e0;
+			    --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);
+			    --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);
+			    --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);
+			    --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);
+			    --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);
+			    --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);
+			    --wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);
+			    --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);
+			    --wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);
+			    --wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);
+			    --wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);
+			    --wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);
+			    --wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
+			    --wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');
+			    --wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');
+			    --wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');
+			    --wp--preset--duotone--midnight: url('#wp-duotone-midnight');
+			    --wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
+			    --wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');
+			    --wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');
+			    --wp--preset--font-size--small: 13px;
+			    --wp--preset--font-size--medium: 20px;
+			    --wp--preset--font-size--large: 36px;
+			    --wp--preset--font-size--x-large: 42px;
+			    --wp--preset--spacing--20: 0.44rem;
+			    --wp--preset--spacing--30: 0.67rem;
+			    --wp--preset--spacing--40: 1rem;
+			    --wp--preset--spacing--50: 1.5rem;
+			    --wp--preset--spacing--60: 2.25rem;
+			    --wp--preset--spacing--70: 3.38rem;
+			    --wp--preset--spacing--80: 5.06rem;
+			    text-align: left;
+			    box-sizing: border-box;
+			    border: 0;
+			    font: inherit;
+			    margin: 0;
+			    vertical-align: baseline;
+			    text-decoration: none;
+			    transition: all .5s ease;
+			    background: rgba(187,213,255,.2);
+			    border-radius: 64px;
+			    color: #5c96f5;
+			    font-size: 14px;
+			    font-weight: 600;
+			    line-height: 20px;
+			    margin-bottom: 20px;
+			    margin-right: 8px;
+			    padding: 4px 16px;
+			}
+			#Outline {
+				width: 25px;
+				height: 25px;
+			}
+
+			#dev-nav{
+				z-index: 9999;
+				background-color: whitesmoke;
+			}
+
+
+			@media screen and (max-width: 1024px) {
+		  /* styles for screens smaller than 1024px */
+			  #main-dev-header {
+			    font-size: 3rem;
+			    width: 100%;
+			    text-align: center;
+			    top: 20%;
+			    left: 0%;
+			  }
+			  #btn-container-dev {
+			    top: 40%;
+			    left: 10%;
+			    flex-direction: row;
+			  }
+			  #image-big {
+			    top: 55%;
+			    left: 0%;
+			  }
+		}
+
+		@media screen and (max-width: 768px) {
+		  /* styles for screens smaller than 768px */
+			  #main-dev-header {
+			    font-size: 2rem;
+			    top: 10%;
+			  }
+			  #btn-container-dev {
+			    top: 30%;
+			    left: 10%;
+			  }
+			  #image-big {
+			    top: 45%;
+			  }
+
+			  #hamburger-btn {
+			  	 display: block;
+			  	 position: absolute;
+			  	 top: 10px;
+			  	 right: 30px;
+			  	 cursor: pointer;
+			  	 z-index: 100;
+			  }
+
+			  #hamburger-btn span {
+			    display: block;
+			    height: 3px;
+			    width: 25px;
+			    margin-bottom: 5px;
+			    background: #000;
+			    border-radius: 10px;
+			  }
+
+			  #hamburger-btn span:last-child {
+			    margin-bottom: 0;
+			  }
+
+			  #navbar {
+			  	visibility: hidden;
+  				opacity: 0;
+			    position: fixed;
+			    top: 33px;
+			    left: 0;
+			    width: 100vw;
+  				max-width: 100%;
+			    flex-direction: column;
+			    background: #7B68EE;
+			    padding: 10px;
+/*			    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
+			    transition: all 0.3s ease;
+  				transform: translateX(-100%);
+  				z-index: 9000;
+  				text-align: center;
+			}
+
+			#navbar.show {
+				 visibility: visible;
+				  opacity: 1;
+				  transform: translateX(0%);
+				  text-align: center;
+				  color: white;
+		    }
+
+		    #tech-diagram {
+				  width: 2rem;
+				  height: 4rem;
+				  margin: 1rem;
+				  display: flex;
+				  flex-direction: row;
+				  gap: 5px;
+				  padding: 2rem;
+				  position: relative;
+				  right: 15%;
+				  top: 0%;
+				  border: 1px solid black;
+			}
+
+		}
+
+		@media screen and (max-width: 576px) {
+		  /* styles for screens smaller than 480px */
+			  #main-dev-header {
+			    font-size: 1.3rem;
+			    top: 13%;
+			  }
+			  #btn-container-dev {
+			    top: 38%;
+			    left: 1%;
+			    gap: 0.5rem;
+			    display: flex;
+			    align-items: center;
+			    align-content: center;
+			    text-align: center;
+			  }
+			  #image-big {
+			    top: 54%;
+			  }
+
+			  #dev-nav {
+			  	height: 2rem;
+			  	display: flex;
+			  	align-items: center;
+			  	
+			  }
+
+			  #nav-header {
+			  	font-size: 1rem;
+			  	padding: 0;
+			  	top: 1%;
+			  	left: 1%;
+			  	width: 60px;
+			  	height: 2rem;
+			  	color: black; 
+			  	opacity: 1;
+			  }
+
+			  .techBtn {
+			  	width: 5.5rem;
+			  	height: 1.5rem;
+			  	font-size: 0.66rem;
+			  	white-space: nowrap;
+			  	text-align: center;
+			  	padding: 0;
+			  }
+
+			  #date-header {
+			  	font-size: 0.8rem;
+			  	white-space: nowrap;
+			  	position: relative;
+			  	top: 94%;
+			  	right: 52%;
+			  	margin-top: 35px;
+			  }
+
+			  #Outline {
+			  	 width: 1rem;
+			  	 height: 1rem;
+			  	 position: relative;
+			  	 top: 94%;
+			  	 right: 54%;
+			  	 margin-top: 35px;
+			  }
+
+			  #contents-dev {
+			  	display: none;
+			  }
+
+			  #tech-description {
+			  	font-size: 0.9rem;
+			  	position: relative;
+			  	bottom: 600px;
+			  	padding: 20px;
+			  	line-height: 17.8px;
+			  }
+
+			#tech-stack-title {
+				font-size: 1.3rem;
+			}
+
+			#tech1 #img1 {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  width: 35px;
+			}
+			#tech2 #img2 {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  width: 35px;
+			}
+			#tech3 #img3 {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  width: 35px;
+			}
+			#tech4 #img4 {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  width: 35px;
+			}
+			#tech5 #img5 {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  width: 35px;
+			}
+			#tech6 #img6 {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  align-content: center;
+			  width: 35px;
+			}
+
+			#tech-container {
+				font-size: 0.3rem;
+			  	/*position: relative;
+			  	bottom: 600px;*/
+			  	padding: 10px;
+			  	line-height: 15.5px;
+			}
+
+		}
+
+		/*@media screen and (min-width:375px){
+				#main-dev-header {
+				    font-size: 1.3rem;
+				    top: 13%;
+				  }
+				  #btn-container-dev {
+				    position: absolute;
+				    left: 3.5%;
+				    gap: 1rem;
+				  }
+				  #image-big {
+				    top: 54%;
+				  }
+
+				  #dev-nav {
+				  	height: 2rem;
+				  	display: flex;
+				  	align-items: center;
+				  	
+				  }
+
+				  #nav-header {
+				  	font-size: 1rem;
+				  	padding: 0;
+				  	top: 1%;
+				  	left: 1%;
+				  	width: 60px;
+				  	height: 2rem;
+				  	color: black; 
+				  	opacity: 1;
+				  }
+
+				  .techBtn {
+				  	width: 6rem;
+				  	height: 1.8rem;
+				  	font-size: 0.88rem;
+				  	white-space: nowrap;
+				  	text-align: center;
+				  	padding: 0;
+				  }
+
+				  #date-header {
+				  	font-size: 0.9rem;
+				  	white-space: nowrap;
+				  	position: relative;
+				  	top: 94%;
+				  	right: 52%;
+				  	margin-top: 35px;
+				  }
+
+				  #Outline {
+				  	 width: 1.5rem;
+				  	 height: 1.5rem;
+				  	 position: relative;
+				  	 top: 94%;
+				  	 right: 54%;
+				  	 margin-top: 35px;
+				  }
+
+				  #contents-dev {
+				  	display: none;
+				  }
+		}
+
+		@media screen and (min-width:425px){
+				#main-dev-header {
+				    font-size: 1.6rem;
+				    top: 13%;
+				  }
+				  #btn-container-dev {
+				    position: absolute;
+				    left: 6.5%;
+				    gap: 1.3rem;
+				  }
+				  #image-big {
+				    top: 54%;
+				  }
+
+				  #dev-nav {
+				  	height: 2rem;
+				  	display: flex;
+				  	align-items: center;
+				  	
+				  }
+
+				  #nav-header {
+				  	font-size: 1rem;
+				  	padding: 0;
+				  	top: 1%;
+				  	left: 1%;
+				  	width: 60px;
+				  	height: 2rem;
+				  	color: black; 
+				  	opacity: 1;
+				  }
+
+				  .techBtn {
+				  	width: 6rem;
+				  	height: 1.8rem;
+				  	font-size: 0.88rem;
+				  	white-space: nowrap;
+				  	text-align: center;
+				  	padding: 0;
+				  }
+
+				  #date-header {
+				  	font-size: 0.9rem;
+				  	white-space: nowrap;
+				  	position: relative;
+				  	top: 94%;
+				  	right: 52%;
+				  	margin-top: 35px;
+				  }
+
+				  #Outline {
+				  	 width: 1.5rem;
+				  	 height: 1.5rem;
+				  	 position: relative;
+				  	 top: 94%;
+				  	 right: 54%;
+				  	 margin-top: 35px;
+				  }
+
+				  #contents-dev {
+				  	display: none;
+				  }
+		}*/
+
+		 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+		 	#hamburger-btn {
+		 		top: 30px;
+		 		right: 60px;
+		 	}
+
+		 	#header-container {
+		 		position: relative;
+		 		top: 7rem;
+		 	}
+
+		 	#btn-container-dev {
+		 		top: 38%;
+		 	}
+
+		 	#imager-big {
+		 		top: 70%;
+		 	}
+		 }
+
+		@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+			#btn-container-dev {
+		 		top: 46%;
+		 	}
+		}
+
+		@media screen and (min-width: 782px) and (max-width: 1022px) {
+		  	#main-dev-header {
+		  		position: relative;
+		  		bottom: 15rem;
+		  	}
+		}
+
+		@media screen and (min-width: 375px) and (max-width: 425px){
+			#btn-container-dev {
+				position: relative;
+				left: 15%;
+				top: 15rem;
+			}
+
+			.techBtn {
+				width: 7.3rem;
+				height: 1.5rem;
+			}
+		}
+
+		@media screen and (min-width: 425px) and (max-width: 768px){
+			#btn-container-dev {
+				position: relative;
+				left: 15%;
+				top: 15rem;
+			}
+
+		}
+
+		@media screen and (min-width: 1026px) and (max-width: 1440px) {
+		  	#main-dev-header {
+		  		position: relative;
+		  		bottom: 6rem;
+		  	}
+		}
+
+		@media screen and (min-width: 1920px) and (min-height: 1080px){
+			#dev-nav {
+				height: 7rem;
+			}
+
+			#nav-header {
+				font-size: 3rem;
+			}
+
+			#main-dev-header {
+				font-size: 4.5rem;
+				position: relative;
+				bottom: 5%;
+				width: 86rem;
+				height: 20rem;
+			}
+
+			.techBtn {
+				width: 12.045rem;
+				height: 3rem;
+				font-size: 1.4rem;
+				text-align: center;
+			}
+
+			#Outline {
+				width: 40px;
+				height: 40px;
+			}
+
+			#date-header {
+				font-size: 2rem;
+				margin-top: 5px;
+			}
+
+			#btn-container-dev {
+				top: 46%;
+			}
+
+			#image-big img {
+				width: 111rem;
+			}
+		}
+
+		</style>
+	</head>
+	<body>
+		<nav id="dev-nav" class=" p-5 opacity-100 fixed top-0 left-0 w-screen h-[5rem] shadow-md overflow-hidden md:flex md:items-center md:justify-between">
+			<h1 id="nav-header" class="md:flex md:items-center 
+			z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-600 text-black text-3xl font-bold mx-5 sm:flex sm-items-center sm-z-auto sm:static sm:w-auto sm:py-0 sm:opacity-100 sm:pl-0 pl-7">DEV</h1>
+			<button id="hamburger-btn">
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			</button>	
+		</nav>
+		<div id="navbar" class="text-lg my-2">
+				<ul>
+					<li class="my-2">
+						<a href="#" class="cursor-poiner text-black hover:text-[#fff] transition-colors duration-500 ease-in-out">HTML</a>
+					</li>	
+					<li class="my-2">
+						<a href="#" class="cursor-pointer text-black hover:text-[#fff] transition-colors duration-500 ease-in-out">CSS</a>
+					</li><li class="my-2">
+						<a href="#"class="cursor-pointer text-black hover:text-[#fff] transition-colors duration-500 ease-in-out">JavaScript</a>
+					</li><li class="my-2">
+						<a href="#" class="cursor-pointer text-black hover:text-[#fff] transition-colors duration-500 ease-in-out">Tailwind</a>
+					</li><li class="my-2">
+						<a href="#" class="cursor-pointer text-black hover:text-[#fff] transition-colors duration-500 ease-in-out">Python</a>
+					</li><li class="my-2">
+						<a href="#" class="cursor-pointer text-black hover:text-[#fff] transition-colors duration-500 ease-in-out">Django</a>
+					</li>
+				</ul>
+			</div>
+		<div id="header-container">
+			<h1 id="main-dev-header" class="font-medium text-5xl absolute top-[28%] left-[10%] w-[70rem] tracking-wide leading-relaxed">Gjuhët dhe teknologjitë e përdorura për ndërtimin e kësaj web-faqeje</h1>
+		</div>
+		<div id="btn-container-dev" class="flex flex-row gap-6 absolute top-[51%] left-[10%]">
+			<button class="techBtn">Web dev</button>
+			<button class="techBtn">Mobile Apps</button>
+			<button class="techBtn">Technology</button>
+			<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z"/><path d="M12,6a1,1,0,0,0-1,1v4.325L7.629,13.437a1,1,0,0,0,1.062,1.7l3.84-2.4A1,1,0,0,0,13,11.879V7A1,1,0,0,0,12,6Z"class="w-[5px] h-[5px]"/></svg>
+			<h4 id="date-header" class="text-xl"></h4>
+		</div>
+		<div id="image-big" class="absolute top-[60%] left-[2%]">
+			<img src="https://devtorium.com/wp-content/uploads/2021/06/blog-image-wide_programming_languages_2022.svg" class=" w-[90rem]">
+		</div>
+		{% include "dev-main.html" %}
+		<script src="{% static 'js/dev.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://cdn.tailwindcss.com"></script>
+		<title>Registration</title>
+	</head>
+	<body>
+		<nav id="auth-nav" class="p-7 opacity-100 fixed top-0 left-0 w-screen h-[5rem] shadow-lg overflow-hidden md:flex md:items-center md:justify-between bg-[#3bf8ff] text-2xl text-white">
+			<h1 id="auth-main-header" class="text-3xl font-semibold">Registration</h1>
+		</nav>
+		{% include "register.html" %}
+		
+	</body>
+</html>

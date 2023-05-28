@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+	@media screen and (min-width:320px) and (max-width: 425px){
+		#success-container {
+			margin-right: 0;
+		}
+		#suc-mes {
+			font-size: 1.6rem;
+			font-weight: 500;
+			text-align: center;
+		}
+
+		#button-back {
+			width: 7rem;
+			height: 3rem;
+		}
+	}
+
+	@media screen and (min-width:425px) and (max-width: 768px){
+		#success-container {
+			margin-right: 0;
+		}
+		#suc-mes {
+			font-size: 2rem;
+			font-weight: 500;
+			text-align: center;
+		}
+
+		#button-back {
+			width: 10rem;
+			height: 3.5rem;
+		}
+	}
+
+	@media screen and (min-width: 1920px) and (min-height: 1080px){
+		#success-container {
+			margin-right: 40rem;
+		}
+		#suc-mes {
+			font-size: 4rem;
+			font-weight: 500;
+			text-align: center;
+		}
+
+		#button-back {
+			width: 14rem;
+			height: 4.5rem;
+			font-size: 2rem;
+		}
+	}
+</style>
+<div id="success-container" class="flex h-screen items-center justify-center mr-[30rem] flex-col">
+	<h1 class="text-5xl mx-10" id="suc-mes">Mesazhi jot u dërgua me sukses!</h1>
+	<button id="button-back" type="post" class="text-white bg-[#040940] rounded-md p-2 w-[10rem] h-[3.5rem] text-xl text-center font-normal mt-[5rem]">
+		<a href="{% url 'blog:report' %}">Kthehu pas!</a>
+	</button>
+</div>
+{% endblock %}
