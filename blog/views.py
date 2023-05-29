@@ -55,15 +55,15 @@ class reportForm(forms.ModelForm):
 		model = UserReport
 		fields = '__all__'
 
-# class reportUser(CreateView):
-# 	model = UserReport
-# 	form_class = reportForm
-# 	template_name = "report.html"
+class reportUser(CreateView):
+	model = UserReport
+	form_class = reportForm
+	template_name = "report.html"
 
-# 	def get_context_data(self, **kwargs):
-# 		context = super().get_context_data(**kwargs)
-# 		context['form'] = self.form_class()
-# 		return context
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['form'] = self.form_class()
+		return context
 
 #The code here is to delete the post
 
@@ -78,15 +78,15 @@ def delete_post(request, pk):
     return redirect('blog:home')
 
 
-class reportUser(FormView):
-    template_name = 'report.html'
-    form_class = ContactForm
-    success_url = reverse_lazy('blog:success')
+# class reportUser(FormView):
+#     template_name = 'report.html'
+#     form_class = ContactForm
+#     success_url = reverse_lazy('blog:success')
 
-    def form_valid(self, form):
-        # Calls the custom send method
-        form.send()
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         # Calls the custom send method
+#         form.send()
+#         return super().form_valid(form)
 
        
 class ContactSuccessView(TemplateView):
