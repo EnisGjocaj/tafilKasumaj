@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'registration',
     'crispy_forms',
     'widget_tweaks',
+    'anymail',
 ]
 
 MIDDLEWARE = [
@@ -146,12 +147,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = env('EMAIL_HOST')
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 # Custom setting. To email
-RECIPIENT_ADDRESS = env('RECIPIENT_ADDRESS')
+# RECIPIENT_ADDRESS = env('RECIPIENT_ADDRESS')
+
+EMAIL_BACKEND = 'anymail.backends.mailjet.EmailBackend'
+ANYMAIL = {
+    'MAILJET_API_KEY': 'bc1b933aa107bb0afd6eb90fd7e9e0be',
+    'MAILJET_SECRET_KEY': '4365157f3480111bf9ba379b656559d9',
+}
+
+DEFAULT_FROM_EMAIL = 'enisgjocaj1@hotmail.com'

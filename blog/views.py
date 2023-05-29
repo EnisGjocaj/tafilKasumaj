@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.mail import send_mail
+from .forms import EmailForm
 
 from django.urls import reverse_lazy
 
@@ -7,7 +9,6 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
 from django.views.generic import FormView, TemplateView
-from .forms import ContactForm
 
 from .models import Post, UserReport
 from django.views import generic
@@ -79,20 +80,45 @@ def delete_post(request, pk):
     return redirect('blog:home')
 
 
-class reportUser(FormView):
-	template_name = 'report.html'
-	form_class = ContactForm
-	success_url = reverse_lazy('blog:success')
+# class reportUser(FormView):
+# 	template_name = 'report.html'
+# 	form_class = ContactForm
+# 	success_url = reverse_lazy('blog:success')
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context['form'] = self.form_class()
-		return context
+# 	def get_context_data(self, **kwargs):
+# 		context = super().get_context_data(**kwargs)
+# 		context['form'] = self.form_class()
+# 		return context
 
-	def form_valid(self, form):
-		# Calls the custom send method
-		form.send()
-		return super().form_valid(form)
+# 	def form_valid(self, form):
+# 		# Calls the custom send method
+# 		form.send()
+# 		return super().form_valid(form)
+
+def send_email_view(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            sender_name = form.cleaned_data['username']
+            sender_email = form.cleaned_data['email']
+            text = form.cleaned_data['text']
+
+            from_email = 'enisgjocaj1@hotmail.com'  # Use your desired sender email address
+            recipient_email = 'enisgjocaj1@hotmail.com'  # Specify the recipient email address
+
+            # Construct the email content
+            email_content = f"From: {sender_name} <{sender_email}>\n\n{text}"
+
+            # Send the email using Django's send_mail() function
+            send_mail('Email i ri', email_content, from_email, [recipient_email])
+
+			return redirect('blog:success')  # Redirect to a success page or appropriate URL
+
+	else:
+		form = EmailForm()
+
+	return render(request, 'report.html', {'form': form})
+
 
        
 class ContactSuccessView(TemplateView):
