@@ -84,10 +84,10 @@ class reportUser(FormView):
 	form_class = ContactForm
 	success_url = reverse_lazy('blog:success')
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context['form'] = self.form_class()
-		return context
+	# def get_context_data(self, **kwargs):
+	# 	context = super().get_context_data(**kwargs)
+	# 	context['form'] = self.form_class()
+	# 	return context
 
 	def form_valid(self, form):
 		# Calls the custom send method
