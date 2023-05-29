@@ -96,23 +96,23 @@ def delete_post(request, pk):
 # 		return super().form_valid(form)
 
 def send_email_view(request):
-    if request.method == 'POST':
-        form = EmailForm(request.POST)
-        if form.is_valid():
-            sender_name = form.cleaned_data['username']
-            sender_email = form.cleaned_data['email']
-            text = form.cleaned_data['text']
+	if request.method == 'POST':
+		form = EmailForm(request.POST)
+		if form.is_valid():
+			sender_name = form.cleaned_data['username']
+			sender_email = form.cleaned_data['email']
+			text = form.cleaned_data['text']
 
-            from_email = 'enisgjocaj1@hotmail.com'  # Use your desired sender email address
-            recipient_email = 'enisgjocaj1@hotmail.com'  # Specify the recipient email address
+			from_email = 'enisgjocaj1@hotmail.com'  # Use your desired sender email address
+			recipient_email = 'enisgjocaj1@hotmail.com'  # Specify the recipient email address
 
             # Construct the email content
-            email_content = f"From: {sender_name} <{sender_email}>\n\n{text}"
+			email_content = f"From: {sender_name} <{sender_email}>\n\n{text}"
 
             # Send the email using Django's send_mail() function
-            send_mail('Email i ri', email_content, from_email, [recipient_email])
+			send_mail('Email i ri', email_content, from_email, [recipient_email])
 
-			return redirect('blog:success')  # Redirect to a success page or appropriate URL
+		return redirect('blog:success')  # Redirect to a success page or appropriate URL
 
 	else:
 		form = EmailForm()
