@@ -80,9 +80,9 @@ def delete_post(request, pk):
 
 
 class reportUser(FormView):
-    template_name = 'report.html'
-    form_class = ContactForm
-    success_url = reverse_lazy('blog:success')
+	template_name = 'report.html'
+	form_class = ContactForm
+	success_url = reverse_lazy('blog:success')
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -90,9 +90,9 @@ class reportUser(FormView):
 		return context
 
 	def form_valid(self, form):
-        # Calls the custom send method
-        form.send()
-        return super().form_valid(form)
+		# Calls the custom send method
+		form.send()
+		return super().form_valid(form)
 
        
 class ContactSuccessView(TemplateView):
