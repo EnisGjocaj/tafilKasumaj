@@ -55,15 +55,15 @@ class reportForm(forms.ModelForm):
 		model = UserReport
 		fields = '__all__'
 
-class reportUser(CreateView):
-	model = UserReport
-	form_class = reportForm
-	template_name = "report.html"
+# class reportUser(CreateView):
+# 	model = UserReport
+# 	form_class = reportForm
+# 	template_name = "report.html"
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context['form'] = self.form_class()
-		return context
+# 	def get_context_data(self, **kwargs):
+# 		context = super().get_context_data(**kwargs)
+# 		context['form'] = self.form_class()
+# 		return context
 
 #The code here is to delete the post
 
