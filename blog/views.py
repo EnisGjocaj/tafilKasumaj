@@ -59,6 +59,7 @@ class reportUser(CreateView):
 	model = UserReport
 	form_class = reportForm
 	template_name = "report.html"
+	success_url = reverse_lazy('blog:success')
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
