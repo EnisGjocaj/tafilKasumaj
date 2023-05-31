@@ -1,8 +1,48 @@
 const aboutContainer = document.getElementById("about-container");
-const aboutBtn = document.getElementById("about-btn");
-const fieldBtn = document.getElementById("field-btn");
+
+const aboutBtnBig = document.getElementById("about-btn-big");
+const fieldBtnBig = document.getElementById("field-btn-big");
+const aboutBtnSm = document.getElementById("about-btn-sm");
+const fieldBtnSm = document.getElementById("field-btn-sm");
+
 const fieldContainer = document.getElementById("drejtimi-content");
 const fieldWrapper = document.getElementById("drejtimi-container");
+
+//BIG devices
+aboutBtnBig.addEventListener("click", () => {
+  console.log("Clicked")
+    const sectionTop = aboutContainer.offsetTop;
+    window.scrollTo({
+      top:sectionTop,
+      behavior: "smooth"
+    });
+});
+
+fieldBtnBig.addEventListener("click", () => {
+    const sectionTopField = fieldWrapper.offsetTop;
+    window.scrollTo({
+      top:sectionTopField,
+      behavior: "smooth"
+    });
+});
+
+//Small devices
+
+aboutBtnSm.addEventListener("click", () => {
+    const sectionTop = aboutContainer.offsetTop;
+    window.scrollTo({
+      top:sectionTop,
+      behavior: "smooth"
+    });
+});
+
+fieldBtnSm.addEventListener("click", () => {
+    const sectionTopField = fieldWrapper.offsetTop;
+    window.scrollTo({
+      top:sectionTopField,
+      behavior: "smooth"
+    });
+});
 
 //lista e drejtimeve
 
@@ -52,21 +92,7 @@ const listOfFields = [
   },
 ];
 
-aboutBtn.addEventListener("click", () => {
-    const sectionTop = aboutContainer.offsetTop;
-    window.scrollTo({
-      top:sectionTop,
-      behavior: "smooth"
-    });
-});
 
-fieldBtn.addEventListener("click", () => {
-    const sectionTopField = fieldWrapper.offsetTop;
-    window.scrollTo({
-      top:sectionTopField,
-      behavior: "smooth"
-    });
-});
 
 listOfFields.forEach(course => {
 
