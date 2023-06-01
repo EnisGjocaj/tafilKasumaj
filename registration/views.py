@@ -13,7 +13,7 @@ def register_request(request):
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
-			return redirect("main:templates/home")
+			return redirect("main:home")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 
@@ -23,7 +23,7 @@ def register_request(request):
 	form.fields["password2"].widget.attrs['class'] = "fields"
 
 
-	return render (request=request, template_name="base_register.html", context={"register_form":form})
+	return render(request=request, template_name="base_register.html", context={"register_form":form})
 
 def login_request(request):
 	if request.method == "POST":
